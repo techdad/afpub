@@ -26,6 +26,8 @@ Documents here are written in what is essentially [MarkDown](https://daringfireb
 
 * You'll also need [xml2rfc](https://xml2rfc.tools.ietf.org)
 
+Some additional processing is needed, as it's not *actually* and RFC of course. TBD.
+
 In addition, a nice MarkDown editor is [MacDown](http://macdown.uranusjr.com/)
 
 `#eof`
