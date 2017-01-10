@@ -2,9 +2,9 @@
 
     Title = "Lame delegations in reverse DNS"
     abbrev = "Lame delegations in reverse DNS"
-    category = ""
+    category = "info"
     docName = "AFPUB-2017-{tba-pdwg}"
-    ipr = ""
+    ipr = "trust200902"
     area = ""
     workgroup = ""
     keyword = ["AFRINIC", "DNS", "Policy"]
