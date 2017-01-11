@@ -11,6 +11,7 @@
     date = 2017-01-11T00:00:00Z
 
     [pi]
+    private = "yes"
     header = "AFRINIC Policy"
     footer = "AFPUB-2017-{tba-pdwg}"
     
@@ -18,7 +19,6 @@
     initials="D."
     surname="Shaw"
     fullname="Daniel Shaw"
-    #role="editor"
     organization = "AFRINIC"
       [author.address]
       email = "daniel@afrinic.net"
@@ -27,13 +27,11 @@
     initials="A."
     surname="Phokeer"
     fullname="Amreesh Phokeer"
-    #role="editor"
 
     [[author]]
     initials="N."
     surname="Goburdhan"
     fullname="Nishal Goburdhan"
-    #role="editor"
 
 %%%
 
