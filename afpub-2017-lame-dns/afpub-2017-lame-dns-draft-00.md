@@ -43,17 +43,19 @@ A brief intro paragraph goes here
 
 # Problem Addressed by this Policy
 
-A brief summary, similar to the abstract, or more brief, simply stating lame delegation is bad.
+A brief intro/summary, similar to the abstract, but likely even more brief, simply stating lame delegation is bad. Expand on the problem in the sub-sections.
 
 ## What is "Lame Delegation"?
 
 Background / references / definition of lame DNS delegation
 
-https://docs.menandmice.com/pages/viewpage.action?pageId=6360996
+Possible info: https://docs.menandmice.com/pages/viewpage.action?pageId=6360996
 
 ## Impact of Lame Delegations in the Global DNS
 
 Some brief text about why it's uncool
+
+Some more possible references:
 
 http://dyn.com/blog/recursive-dns-round-trip-times-delegations-dns-performance/
 
@@ -72,6 +74,8 @@ Some text stating this covers in-addr.arpa only, and only for resources managed 
 
 
 # Policy
+
+The actual policy (solution) follows here. Maybe start with an intro line or two again.
 
 ## Process Detail
 
@@ -93,7 +97,7 @@ How does a resource holder re-add a non-lame delegation. Just point to existing 
 
 ## Situation in other RIRs
 
-Self explanatory
+Self explanatory section. Reference links below. Might be better versions, needs some more searching.
 
 https://www.apnic.net/policy/discussions/prop-038-v001.txt
 https://www.arin.net/policy/proposals/2002_1.html
