@@ -7,8 +7,7 @@
     ipr = "trust200902"
     area = ""
     workgroup = "AFRINIC Policy"
-    keyword = ["AFRINIC", "DNS", "Policy"]
-
+    
     date = 2017-01-11T00:00:00Z
 
     [pi]
@@ -40,7 +39,7 @@
 
 .# Abstract
 
-Optional (possibly to be removed) brief intro goes here
+A brief intro paragraph goes here
 
 {mainmatter}
 
