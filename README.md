@@ -4,7 +4,7 @@
 
 * Lame Delegation in reverse DNS policy: [afpub-2017-lame-dns](afpub-2017-lame-dns)
 
-## What is this stuff, really?
+## What is here?
 
 * Working edits and drafts of policy proposals for AFRINIC go in here. (It's easy(ish) to collaborate this way. Git. In the cloud).
 
@@ -12,19 +12,23 @@
 
 * Each policy draft/proposal should go into a sub-folder. Current docs actively being worked on should be listed above. (Assuming no one forgot to update the README).
 
-## How do you make edits?
+## How do co-authors make edits?
 
-You fork and make a [pull request](https://help.github.com/articles/about-pull-requests). You should have a Github account.
+* Fork.
 
-## What else do you need?
+* Make a [pull request](https://help.github.com/articles/about-pull-requests). 
 
-Documents here are written in what is essentially [MarkDown](https://daringfireball.net/projects/markdown/), intended to be processed by [Mmark](https://miek.nl/tags/mmark) by Miek Gieben.
+(A Github account is needed.)
+
+## What else is needed?
+
+Documents here are written in what is essentially [MarkDown](https://daringfireball.net/projects/markdown/), with some extensions, intended to be processed by [Mmark](https://miek.nl/tags/mmark) by Miek Gieben.
 
 * Install it from here: [github.com/miekg/mmark/releases](https://github.com/miekg/mmark/releases)
 
 * The syntax is documented here: [github.com/miekg/mmark/wiki/Syntax](https://github.com/miekg/mmark/wiki/Syntax)
 
-* You'll also need [xml2rfc](https://xml2rfc.tools.ietf.org). Although they're *obviously* not *actual* RFCs, the `private="yes"` PI flag makes things generic, but nicely formatted!
+* You'll also need [xml2rfc](https://xml2rfc.tools.ietf.org). Although *obviously* not *actual* RFCs, the `private="yes"` PI flag makes things generic, but very nicely formatted!
 
 In addition, a nice MarkDown editor is [MacDown](http://macdown.uranusjr.com/)
 
