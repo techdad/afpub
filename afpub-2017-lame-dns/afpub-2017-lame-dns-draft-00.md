@@ -6,11 +6,15 @@
     docName = "AFPUB-2017-{tba-pdwg}"
     ipr = "trust200902"
     area = ""
-    workgroup = ""
+    workgroup = "AFRINIC Policy"
     keyword = ["AFRINIC", "DNS", "Policy"]
 
-    date = 2017-01-10T00:00:00Z
+    date = 2017-01-11T00:00:00Z
 
+    [pi]
+    header = "AFRINIC Policy"
+    footer = "AFPUB-2017-{tba-pdwg}"
+    
     [[author]]
     initials="D."
     surname="Shaw"
@@ -108,5 +112,5 @@ Some stuff about what the impact may or may not be, to what and to whom.
 
 # Revision History
 
- 1. 2017-01-10 -- Revision 00, etc. etc.
+ 1. 2017-01-10 -- Revision: Draft 00
 
