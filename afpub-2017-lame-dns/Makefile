@@ -13,12 +13,12 @@ html: $(html)
 .PHONY: text html
 
 $(text): $(mdown)
-	$(MMARK) $< > $<.xml
-	xml2rfc -b $(base) --text $<.xml && rm -f $<.xml
+	$(MMARK) $< > $(base).xml
+	xml2rfc --text $(base).xml && rm -f $(base).xml
 
 $(html): $(mdown)
-	$(MMARK) $< > $<.xml
-	xml2rfc -b $(base) --html $<.xml && rm -f $<.xml
+	$(MMARK) $< > $(base).xml
+	xml2rfc --html $(base).xml && rm -f $(base).xml
 
 .PHONY: clean
 clean:
