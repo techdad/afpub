@@ -24,9 +24,7 @@ Documents here are written in what is essentially [MarkDown](https://daringfireb
 
 * The syntax is documented here: [github.com/miekg/mmark/wiki/Syntax](https://github.com/miekg/mmark/wiki/Syntax)
 
-* You'll also need [xml2rfc](https://xml2rfc.tools.ietf.org)
-
-Some additional processing is needed, as it's not *actually* and RFC of course. TBD.
+* You'll also need [xml2rfc](https://xml2rfc.tools.ietf.org). Although they're *obviously* not *actual* RFCs, the `private="yes"` PI flag makes things generic, but nicely formatted!
 
 In addition, a nice MarkDown editor is [MacDown](http://macdown.uranusjr.com/)
 
