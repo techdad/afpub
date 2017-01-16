@@ -27,11 +27,23 @@
     initials="A."
     surname="Phokeer"
     fullname="Amreesh Phokeer"
+    organization = "AFRINIC"
+      [author.address]
+      email = "amreesh@afrinic.net"
 
     [[author]]
     initials="N."
     surname="Goburdhan"
     fullname="Nishal Goburdhan"
+      [author.address]
+      email = "nishal@controlfreak.co.za"
+
+    [[author]]
+    initials="J."
+    surname="Engelbrecht"
+    fullname="Jaco Engelbrecht"
+      [author.address]
+      email = "bje@serendipity.org.za"
 
 %%%
 
