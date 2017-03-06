@@ -61,7 +61,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Background: What is "Lame Delegation"?
 
-In the DNS, generally, a lame delegation is a type of error that results when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name.
+In the DNS, generally, a lame delegation is a type of DNS misconfiguration error that results when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name. For example, if a name server is delegated the responsibility for providing a name service for a zone (via NS records) and it is not actually doing it i.e. the name server is neither set up as a primary nor as a secondary server, the NS record is considered to be ‘lame’ [RFC1912](https://www.ietf.org/rfc/rfc1912.txt).
 
 ## Impact of Lame Delegations in the Global DNS
 
@@ -77,11 +77,11 @@ But comparing to a lame delegation, the client receives a referral to the lame (
 
 If the first name-server in the set fails, the client may try the remainder, one by one if all are lame.
 
-In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for a time-out before trying the next or failing.
+In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for a time-out before trying the next or failing. 
 
 In summary, lame name-server delegations as compared to no delegation result in additional DNS traffic and a far greater time to respond for the client, with the same practical end outcome.
 
-In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s).
+In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s). 
 
 
 # How this Policy Addresses the Problem
@@ -92,7 +92,7 @@ This policy lays out a process to monitor for name-server records resulting in l
 
 ## Scope of the Policy
 
-This policy is intended to apply only to the DNS zones under in-addr.arpa and ip6.arpa managed by AFRINIC. And should check the NS records as sourced from `domain` objects in the AFRINIC WHOIS database.
+This policy is intended to apply only to the DNS zones under in-addr.arpa and ip6.arpa managed by AFRINIC. And should check every single NS record as sourced from `domain` objects in the AFRINIC WHOIS database.
 
 More specifically, this policy is only applicable to reverse DNS delegations managed within the AFRINIC region for AFRINIC majority RIR IP allocations and assignments.
 
@@ -138,11 +138,15 @@ Only those name-servers flagged as lame should be removed from a given domain. T
 
 These removals should be automated. An optional `remarks` line may be added to the domain record in the database.
 
+A domain object having all its name-server attributes identified as lame should be removed from the database.
+
 ### Re-instatement
 
 Once corrected or alternate name-servers are available for a given reverse DNS zone, the responsible person(s) would add delegation to them in the same way as a new delegation is done for a new IP assignment or allocation.
 
 This process is  found in the AFRINIC document "[How to request reverse delegation in AFRINIC region?](https://www.afrinic.net/library/corporate-documents/216-how-to-request-reverse-delegation-in-afrinic-region)".
+
+Historical information about removed name-servers and domain objects should be archived for a reasonable amount of time and made available to the member for informational purpose.
 
 
 # Further Information
@@ -152,7 +156,12 @@ This process is  found in the AFRINIC document "[How to request reverse delegati
  * ARIN: [Policy 2002-1: Lame Delegations in IN-ADDR.ARPA](https://www.arin.net/policy/proposals/2002_1.html)
  * APNIC: [prop-038: Amending APNIC’s lame DNS reverse delegation policy](https://www.apnic.net/community/policy/proposals/prop-038/)
  * LACNIC: [Lame Delegation Policy within the Region Covered by LACNIC](http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-delegation-en.pdf)
- * RIPE NCC: No known policy at this time. 
+ * RIPE NCC: No known policy at this time.
+
+## DNS misconfiguration studies
+
+ * Lame delegation in the AFRINIC database: [How lame are our reverse delegations?](http://afrinic.net/blog/165-how-lame-are-our-reverse-delegations)
+ * DNS Misconfiguration errors: [Impact of Configuration Errors on DNS Robustness](http://web.cs.ucla.edu/~lixia/papers/09DNSConfig.pdf) 
 
 ## Possible Operational Impact(s)
 
