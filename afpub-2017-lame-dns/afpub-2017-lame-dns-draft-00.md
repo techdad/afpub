@@ -47,11 +47,6 @@
       email = "bje@serendipity.org.za"
 %%%
 
-.# Abstract
-
-This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP address resources in the AFRINIC region.
-
-
 {mainmatter}
 
 
