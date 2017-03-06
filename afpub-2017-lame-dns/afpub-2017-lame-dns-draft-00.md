@@ -3,17 +3,17 @@
     Title = "Lame delegations in reverse DNS"
     abbrev = "Lame delegations in reverse DNS"
     category = "info"
-    docName = "AFPUB-2017-{tba-pdwg}"
+    docName = "AFPUB-2017-{.....}"
     ipr = "trust200902"
     area = ""
     workgroup = "AFRINIC Policy"
     
-    date = 2017-01-11T00:00:00Z
+    date = 2017-03-06T00:00:00Z
 
     [pi]
     private = "yes"
     header = "AFRINIC Policy"
-    footer = "AFPUB-2017-{tba-pdwg}"
+    footer = "AFPUB-2017-{.....}"
     
     [[author]]
     initials="D."
@@ -35,8 +35,9 @@
     initials="N."
     surname="Goburdhan"
     fullname="Nishal Goburdhan"
+    organization = "INX-ZA"
       [author.address]
-      email = "nishal@controlfreak.co.za"
+      email = "nishal@inx.net.za"
 
     [[author]]
     initials="J."
@@ -44,35 +45,28 @@
     fullname="Jaco Engelbrecht"
       [author.address]
       email = "bje@serendipity.org.za"
-
 %%%
 
 .# Abstract
 
-A brief intro paragraph goes here
+This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP resources in the AFRINIC region.
+
 
 {mainmatter}
 
+
 # Problem Addressed by this Policy
 
-A brief intro/summary, similar to the abstract, but likely even more brief, simply stating lame delegation is bad. Expand on the problem in the sub-sections.
 
-## What is "Lame Delegation"?
+## Background: What is "Lame Delegation"?
 
-Background / references / definition of lame DNS delegation
-
-Possible info: https://docs.menandmice.com/pages/viewpage.action?pageId=6360996
+In the DNS, generally, a lame delegation is a type of error that results when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name.
 
 ## Impact of Lame Delegations in the Global DNS
 
-Some brief text about why it's uncool
+In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records, delegating authority further down the chain of authority.
 
-Some more possible references:
-
-http://dyn.com/blog/recursive-dns-round-trip-times-delegations-dns-performance/
-
-http://archive.oreilly.com/pub/a/sysadmin/2007/04/26/5-basic-mistakes-not-to-make-in-dns.html?page=2
-
+With such a delegation resulting in a lame responses, the most obvious  issue is complete failure for the specific arpa. sub-zone below being delegated to.
 
 # How this Policy Addresses the Problem
 
@@ -125,5 +119,5 @@ Some stuff about what the impact may or may not be, to what and to whom.
 
 # Revision History
 
- 1. 2017-01-10 -- Revision: Draft 00
+ 1. 2017-01-06 -- Revision: Fir st draft (01)
 

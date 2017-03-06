@@ -1,0 +1,168 @@
+
+
+
+
+                                                                 D. Shaw
+                                                              A. Phokeer
+                                                                 AFRINIC
+                                                            N. Goburdhan
+                                                                  INX-ZA
+                                                          J. Engelbrecht
+                                                           March 6, 2017
+
+
+                    Lame delegations in reverse DNS
+                           AFPUB-2017-{.....}
+
+Abstract
+
+   This policy is intended to address lame DNS delegations specific to
+   the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to
+   records for IP resources in the AFRINIC region.
+
+Table of Contents
+
+   1.  Problem Addressed by this Policy  . . . . . . . . . . . . . .   1
+     1.1.  Background: What is "Lame Delegation"?  . . . . . . . . .   1
+     1.2.  Impact of Lame Delegations in the Global DNS  . . . . . .   2
+   2.  How this Policy Addresses the Problem . . . . . . . . . . . .   2
+     2.1.  Summary . . . . . . . . . . . . . . . . . . . . . . . . .   2
+     2.2.  Scope of the Policy . . . . . . . . . . . . . . . . . . .   2
+   3.  Policy  . . . . . . . . . . . . . . . . . . . . . . . . . . .   2
+     3.1.  Process Detail  . . . . . . . . . . . . . . . . . . . . .   2
+       3.1.1.  Monitor . . . . . . . . . . . . . . . . . . . . . . .   2
+       3.1.2.  Notify  . . . . . . . . . . . . . . . . . . . . . . .   2
+       3.1.3.  Remove Delegation . . . . . . . . . . . . . . . . . .   2
+       3.1.4.  Re-instate  . . . . . . . . . . . . . . . . . . . . .   2
+     3.2.  Situation in other RIRs . . . . . . . . . . . . . . . . .   3
+     3.3.  Pros and Cons . . . . . . . . . . . . . . . . . . . . . .   3
+   Appendix A.  Revision History . . . . . . . . . . . . . . . . . .   3
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   3
+
+1.  Problem Addressed by this Policy
+
+1.1.  Background: What is "Lame Delegation"?
+
+   In the DNS, generally, a lame delegation is a type of error that
+   results when a name server which is designated as the authoritative
+   server for a domain name, when queried, does not have authoritative
+   data for that name.
+
+
+
+
+
+
+Shaw, et al.               AFPUB-2017-{.....}                   [Page 1]
+
+AFRINIC Policy       Lame delegations in reverse DNS          March 2017
+
+
+1.2.  Impact of Lame Delegations in the Global DNS
+
+   In the in-addr.arpa and ip6.arpa zones, as applicable to this policy,
+   the DNS records considered are NS records, delegating authority
+   further down the chain of authority.
+
+   With such a delegation resulting in a lame responses, the most
+   obvious issue is complete failure for the specific arpa. sub-zone
+   below being delegated to.
+
+2.  How this Policy Addresses the Problem
+
+2.1.  Summary
+
+   Overview of monitor, alert, disable/remove process and phases
+
+2.2.  Scope of the Policy
+
+   Some text stating this covers in-addr.arpa only, and only for
+   resources managed by AFRINIC.
+
+3.  Policy
+
+   The actual policy (solution) follows here.  Maybe start with an intro
+   line or two again.
+
+3.1.  Process Detail
+
+3.1.1.  Monitor
+
+   Monitor for x-time,etc.
+
+3.1.2.  Notify
+
+   Detail about how/how often to try get in touch with resource holder
+   or whoever
+
+3.1.3.  Remove Delegation
+
+   Details about what happens next
+
+3.1.4.  Re-instate
+
+   How does a resource holder re-add a non-lame delegation.  Just point
+   to existing docs.
+
+
+
+
+
+
+Shaw, et al.               AFPUB-2017-{.....}                   [Page 2]
+
+AFRINIC Policy       Lame delegations in reverse DNS          March 2017
+
+
+3.2.  Situation in other RIRs
+
+   Self explanatory section.  Reference links below.  Might be better
+   versions, needs some more searching.
+
+   <https://www.apnic.net/policy/discussions/prop-038-v001.txt>
+   <https://www.arin.net/policy/proposals/2002_1.html>
+   <http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-
+   delegation-en.pdf> <http://www.lacnic.net/en/web/lacnic/manual-6>
+
+3.3.  Pros and Cons
+
+   Some stuff about what the impact may or may not be, to what and to
+   whom.
+
+Appendix A.  Revision History
+
+   1.  2017-01-06 -- Revision: Fir st draft (01)
+
+Authors' Addresses
+
+   Daniel Shaw
+   AFRINIC
+
+   Email: daniel@afrinic.net
+
+
+   Amreesh Phokeer
+   AFRINIC
+
+   Email: amreesh@afrinic.net
+
+
+   Nishal Goburdhan
+   INX-ZA
+
+   Email: nishal@inx.net.za
+
+
+   Jaco Engelbrecht
+
+   Email: bje@serendipity.org.za
+
+
+
+
+
+
+
+
+
+Shaw, et al.               AFPUB-2017-{.....}                   [Page 3]
