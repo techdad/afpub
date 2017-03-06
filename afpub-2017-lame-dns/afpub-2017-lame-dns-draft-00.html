@@ -5,7 +5,7 @@
 <head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 
-  <title>Lame delegations in reverse DNS</title>
+  <title>Lame delegations in AFRINIC reverse DNS</title>
 
   <style type="text/css" title="Xml2Rfc (sans serif)">
   /*<![CDATA[*/
@@ -374,21 +374,25 @@
   </style>
 
   <link href="#rfc.toc" rel="Contents"/>
-<link href="#rfc.section.1" rel="Chapter" title="1 Problem Addressed by this Policy"/>
-<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Background: What is &quot;Lame Delegation&quot;?"/>
-<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Impact of Lame Delegations in the Global DNS"/>
-<link href="#rfc.section.2" rel="Chapter" title="2 How this Policy Addresses the Problem"/>
-<link href="#rfc.section.2.1" rel="Chapter" title="2.1 Summary"/>
-<link href="#rfc.section.2.2" rel="Chapter" title="2.2 Scope of the Policy"/>
-<link href="#rfc.section.3" rel="Chapter" title="3 Policy"/>
-<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Process Detail"/>
-<link href="#rfc.section.3.1.1" rel="Chapter" title="3.1.1 Monitor"/>
-<link href="#rfc.section.3.1.2" rel="Chapter" title="3.1.2 Notify"/>
-<link href="#rfc.section.3.1.3" rel="Chapter" title="3.1.3 Remove Delegation"/>
-<link href="#rfc.section.3.1.4" rel="Chapter" title="3.1.4 Re-instate"/>
-<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Situation in other RIRs"/>
-<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Pros and Cons"/>
-<link href="#rfc.appendix.A" rel="Chapter" title="A Revision History"/>
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Requirements Language"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 Problem Addressed by this Policy"/>
+<link href="#rfc.section.2.1" rel="Chapter" title="2.1 Background: What is &quot;Lame Delegation&quot;?"/>
+<link href="#rfc.section.2.2" rel="Chapter" title="2.2 Impact of Lame Delegations in the Global DNS"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 How this Policy Addresses the Problem"/>
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Summary"/>
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Scope of the Policy"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Policy to address lame DNS delegations"/>
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Process Detail"/>
+<link href="#rfc.section.4.1.1" rel="Chapter" title="4.1.1 Monitoring / Checking"/>
+<link href="#rfc.section.4.1.2" rel="Chapter" title="4.1.2 Notification"/>
+<link href="#rfc.section.4.1.3" rel="Chapter" title="4.1.3 Delegation Removal"/>
+<link href="#rfc.section.4.1.4" rel="Chapter" title="4.1.4 Re-instatement"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Further Information"/>
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Similar policies in other regions"/>
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Possible Imapct(s)"/>
+<link href="#rfc.appendix.A" rel="Chapter" title="A Glossary"/>
+<link href="#rfc.appendix.B" rel="Chapter" title="B Revision History"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -396,10 +400,10 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Shaw, D., Phokeer, A., Goburdhan, N., and J. Engelbrecht" />
-  <meta name="dct.identifier" content="urn:ietf:id:AFPUB-2017-{.....}" />
+  <meta name="dct.identifier" content="urn:ietf:id:AFPUB-2017-DNS001-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2017-3-6" />
-  <meta name="dct.abstract" content="This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP resources in the AFRINIC region.  " />
-  <meta name="description" content="This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP resources in the AFRINIC region.  " />
+  <meta name="dct.abstract" content="This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP address resources in the AFRINIC region.  " />
+  <meta name="description" content="This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP address resources in the AFRINIC region.  " />
 
 </head>
 
@@ -441,71 +445,129 @@
     </tbody>
   </table>
 
-  <p class="title">Lame delegations in reverse DNS<br />
-  <span class="filename">AFPUB-2017-{.....}</span></p>
+  <p class="title">Lame delegations in AFRINIC reverse DNS<br />
+  <span class="filename">AFPUB-2017-DNS001-00</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP resources in the AFRINIC region.  </p>
+<p>This policy is intended to address lame DNS delegations specific to the in-addr.arpa and ip6.arpa DNS hierarchies, as applicable to records for IP address resources in the AFRINIC region.  </p>
 
   
   <hr class="noprint" />
   <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
   <ul class="toc">
 
-  	<li>1.   <a href="#rfc.section.1">Problem Addressed by this Policy</a></li>
-<ul><li>1.1.   <a href="#rfc.section.1.1">Background: What is "Lame Delegation"?</a></li>
-<li>1.2.   <a href="#rfc.section.1.2">Impact of Lame Delegations in the Global DNS</a></li>
-</ul><li>2.   <a href="#rfc.section.2">How this Policy Addresses the Problem</a></li>
-<ul><li>2.1.   <a href="#rfc.section.2.1">Summary</a></li>
-<li>2.2.   <a href="#rfc.section.2.2">Scope of the Policy</a></li>
-</ul><li>3.   <a href="#rfc.section.3">Policy</a></li>
-<ul><li>3.1.   <a href="#rfc.section.3.1">Process Detail</a></li>
-<ul><li>3.1.1.   <a href="#rfc.section.3.1.1">Monitor</a></li>
-<li>3.1.2.   <a href="#rfc.section.3.1.2">Notify</a></li>
-<li>3.1.3.   <a href="#rfc.section.3.1.3">Remove Delegation</a></li>
-<li>3.1.4.   <a href="#rfc.section.3.1.4">Re-instate</a></li>
-</ul><li>3.2.   <a href="#rfc.section.3.2">Situation in other RIRs</a></li>
-<li>3.3.   <a href="#rfc.section.3.3">Pros and Cons</a></li>
-</ul><li>Appendix A.   <a href="#rfc.appendix.A">Revision History</a></li>
+  	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Requirements Language</a></li>
+</ul><li>2.   <a href="#rfc.section.2">Problem Addressed by this Policy</a></li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Background: What is "Lame Delegation"?</a></li>
+<li>2.2.   <a href="#rfc.section.2.2">Impact of Lame Delegations in the Global DNS</a></li>
+</ul><li>3.   <a href="#rfc.section.3">How this Policy Addresses the Problem</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">Summary</a></li>
+<li>3.2.   <a href="#rfc.section.3.2">Scope of the Policy</a></li>
+</ul><li>4.   <a href="#rfc.section.4">Policy to address lame DNS delegations</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Process Detail</a></li>
+<ul><li>4.1.1.   <a href="#rfc.section.4.1.1">Monitoring / Checking</a></li>
+<li>4.1.2.   <a href="#rfc.section.4.1.2">Notification</a></li>
+<li>4.1.3.   <a href="#rfc.section.4.1.3">Delegation Removal</a></li>
+<li>4.1.4.   <a href="#rfc.section.4.1.4">Re-instatement</a></li>
+</ul></ul><li>5.   <a href="#rfc.section.5">Further Information</a></li>
+<ul><li>5.1.   <a href="#rfc.section.5.1">Similar policies in other regions</a></li>
+<li>5.2.   <a href="#rfc.section.5.2">Possible Imapct(s)</a></li>
+</ul><li>Appendix A.   <a href="#rfc.appendix.A">Glossary</a></li>
+<li>Appendix B.   <a href="#rfc.appendix.B">Revision History</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
 
-  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#problem-addressed-by-this-policy" id="problem-addressed-by-this-policy">Problem Addressed by this Policy</a></h1>
-<h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#background-what-is-lame-delegation" id="background-what-is-lame-delegation">Background: What is "Lame Delegation"?</a></h1>
-<p id="rfc.section.1.1.p.1">In the DNS, generally, a lame delegation is a type of error that results when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name.  </p>
-<h1 id="rfc.section.1.2"><a href="#rfc.section.1.2">1.2.</a> <a href="#impact-of-lame-delegations-in-the-global-dns" id="impact-of-lame-delegations-in-the-global-dns">Impact of Lame Delegations in the Global DNS</a></h1>
-<p id="rfc.section.1.2.p.1">In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records, delegating authority further down the chain of authority.  </p>
-<p id="rfc.section.1.2.p.2">With such a delegation resulting in a lame responses, the most obvious  issue is complete failure for the specific arpa. sub-zone below being delegated to.  </p>
-<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#how-this-policy-addresses-the-problem" id="how-this-policy-addresses-the-problem">How this Policy Addresses the Problem</a></h1>
-<h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#summary" id="summary">Summary</a></h1>
-<p id="rfc.section.2.1.p.1">Overview of monitor, alert, disable/remove process and phases </p>
-<h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#scope-of-the-policy" id="scope-of-the-policy">Scope of the Policy</a></h1>
-<p id="rfc.section.2.2.p.1">Some text stating this covers in-addr.arpa only, and only for resources managed by AFRINIC.  </p>
-<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#policy" id="policy">Policy</a></h1>
-<p id="rfc.section.3.p.1">The actual policy (solution) follows here. Maybe start with an intro line or two again.  </p>
-<h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#process-detail" id="process-detail">Process Detail</a></h1>
-<h1 id="rfc.section.3.1.1"><a href="#rfc.section.3.1.1">3.1.1.</a> <a href="#monitor" id="monitor">Monitor</a></h1>
-<p id="rfc.section.3.1.1.p.1">Monitor for x-time,etc.  </p>
-<h1 id="rfc.section.3.1.2"><a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#notify" id="notify">Notify</a></h1>
-<p id="rfc.section.3.1.2.p.1">Detail about how/how often to try get in touch with resource holder or whoever </p>
-<h1 id="rfc.section.3.1.3"><a href="#rfc.section.3.1.3">3.1.3.</a> <a href="#remove-delegation" id="remove-delegation">Remove Delegation</a></h1>
-<p id="rfc.section.3.1.3.p.1">Details about what happens next </p>
-<h1 id="rfc.section.3.1.4"><a href="#rfc.section.3.1.4">3.1.4.</a> <a href="#reinstate" id="reinstate">Re-instate</a></h1>
-<p id="rfc.section.3.1.4.p.1">How does a resource holder re-add a non-lame delegation. Just point to existing docs.  </p>
-<h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#situation-in-other-rirs" id="situation-in-other-rirs">Situation in other RIRs</a></h1>
-<p id="rfc.section.3.2.p.1">Self explanatory section. Reference links below. Might be better versions, needs some more searching.  </p>
-<p><span>&lt;</span><a href="https://www.apnic.net/policy/discussions/prop-038-v001.txt">https://www.apnic.net/policy/discussions/prop-038-v001.txt</a><span>&gt;</span> <span>&lt;</span><a href="https://www.arin.net/policy/proposals/2002_1.html">https://www.arin.net/policy/proposals/2002_1.html</a><span>&gt;</span> <span>&lt;</span><a href="http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-delegation-en.pdf">http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-delegation-en.pdf</a><span>&gt;</span> <span>&lt;</span><a href="http://www.lacnic.net/en/web/lacnic/manual-6">http://www.lacnic.net/en/web/lacnic/manual-6</a><span>&gt;</span> </p>
-<h1 id="rfc.section.3.3"><a href="#rfc.section.3.3">3.3.</a> <a href="#pros-and-cons" id="pros-and-cons">Pros and Cons</a></h1>
-<p id="rfc.section.3.3.p.1">Some stuff about what the impact may or may not be, to what and to whom.  </p>
-<h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> <a href="#revision-history" id="revision-history">Revision History</a></h1>
+  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
+<h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#requirements-language" id="requirements-language">Requirements Language</a></h1>
+<p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://www.rfc-editor.org/rfc/rfc2119.txt">RFC2119</a>.  </p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#problem-addressed-by-this-policy" id="problem-addressed-by-this-policy">Problem Addressed by this Policy</a></h1>
+<h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#background-what-is-lame-delegation" id="background-what-is-lame-delegation">Background: What is "Lame Delegation"?</a></h1>
+<p id="rfc.section.2.1.p.1">In the DNS, generally, a lame delegation is a type of error that results when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name.  </p>
+<h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#impact-of-lame-delegations-in-the-global-dns" id="impact-of-lame-delegations-in-the-global-dns">Impact of Lame Delegations in the Global DNS</a></h1>
+<p id="rfc.section.2.2.p.1">In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records, delegating authority further down the chain of authority.  </p>
+<p id="rfc.section.2.2.p.2">With such a delegation resulting in a lame responses, the most obvious  issue is complete failure for the specific .ARPA sub-zone that is being delegated to.  </p>
+<p id="rfc.section.2.2.p.3">This is similar to not having any delegations in place at all: The sub-set of .ARPA records cannot be found and so reverse DNS lookups will fail for that set of IP address resources.  </p>
+<p id="rfc.section.2.2.p.4">With no delegation in place, the failure is immediate and final. The querying client for a particular zone will get a fast response from the parent zone's name-server, and do no further lookups.  </p>
+<p id="rfc.section.2.2.p.5">But comparing to a lame delegation, the client receives a referral to the lame (and invalid or broken) name-server(s). It then has to look them up by name before then querying one or more for the originally requested record.  </p>
+<p id="rfc.section.2.2.p.6">If the first name-server in the set fails, the client may try the remainder, one by one if all are lame.  </p>
+<p id="rfc.section.2.2.p.7">In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for a time-out before trying the next or failing.  </p>
+<p id="rfc.section.2.2.p.8">In summary, lame name-server delegations as compared to no delegation result in additional DNS traffic and a far greater time to respond for the client, with the same practical end outcome.  </p>
+<p id="rfc.section.2.2.p.9">In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s).  </p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#how-this-policy-addresses-the-problem" id="how-this-policy-addresses-the-problem">How this Policy Addresses the Problem</a></h1>
+<h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#summary" id="summary">Summary</a></h1>
+<p id="rfc.section.3.1.p.1">This policy lays out a process to monitor for name-server records resulting in lame delegations, and a phased approach to removing these records from the DNS.  </p>
+<h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#scope-of-the-policy" id="scope-of-the-policy">Scope of the Policy</a></h1>
+<p id="rfc.section.3.2.p.1">This policy is intended to apply only to the DNS zones under in-addr.arpa and ip6.arpa managed by AFRINIC. And should check the NS records as sourced from <samp>domain</samp> objects in the AFRINIC WHOIS database.  </p>
+<p id="rfc.section.3.2.p.2">More specifically, this policy is only applicable to reverse DNS delegations managed within the AFRINIC region for AFRINIC majority RIR IP allocations and assignments.  </p>
+<p id="rfc.section.3.2.p.3">This policy should not monitor or consider reverse DNS delegations for minority RIR IP address resources or legacy IP address resources.  </p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#policy-to-address-lame-dns-delegations" id="policy-to-address-lame-dns-delegations">Policy to address lame DNS delegations</a></h1>
+<h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> <a href="#process-detail" id="process-detail">Process Detail</a></h1>
+<h1 id="rfc.section.4.1.1"><a href="#rfc.section.4.1.1">4.1.1.</a> <a href="#monitoring--checking" id="monitoring--checking">Monitoring / Checking</a></h1>
+<p id="rfc.section.4.1.1.p.1">All <samp>domain</samp> objects in the AFRINIC WHOIS database must be periodically examined, and all <samp>nserver</samp> attributes extracted for checking.  </p>
+<p id="rfc.section.4.1.1.p.2">Each <samp>nserver</samp> found must be checked to: </p>
+<p/>
+
+<ul>
+  <li>Respond to DNS queries.</li>
+  <li>Reply with a valid SOA record for the domain it's associated with in the WHOIS database.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.1.p.4">This periodic checking should be automated. The checks should be relatively frequent, but not so frequent as to cause any operational impact to either AFRINIC systems or the global DNS.  </p>
+<p id="rfc.section.4.1.1.p.5">It is recommended that when a name-server fails a check for the first time, this is initially just recorded. Only after multiple lameness checks failing should a name-server be flagged for further action.  </p>
+<h1 id="rfc.section.4.1.2"><a href="#rfc.section.4.1.2">4.1.2.</a> <a href="#notification" id="notification">Notification</a></h1>
+<p id="rfc.section.4.1.2.p.1">Once one or more name-servers are flagged as lame, a reasonable attempt must be made to contact the person(s) responsible for the <samp>domain</samp> object and the DNS delegation.  </p>
+<p id="rfc.section.4.1.2.p.2">It is recommended that all of the <samp>admin-c</samp>, <samp>tech-c</samp> and <samp>zone-c</samp> contacts be tried in parallel.  </p>
+<p id="rfc.section.4.1.2.p.3">In addition, contact information may be extracted from associated <samp>org</samp> and/or <samp>mnt-by</samp> attributes when appropriate.  </p>
+<p id="rfc.section.4.1.2.p.4">Unanswered notification communications should also be re-tried more than once before moving on to further actions.  </p>
+<p id="rfc.section.4.1.2.p.5">It is recommended that the communication frequency, communication method(s) and number of attempts should be standardised and publicly documented.  </p>
+<h1 id="rfc.section.4.1.3"><a href="#rfc.section.4.1.3">4.1.3.</a> <a href="#delegation-removal" id="delegation-removal">Delegation Removal</a></h1>
+<p id="rfc.section.4.1.3.p.1">Once a given name-server had been determined to be lame for a given DNS <samp>domain</samp>, and reasonable attempts have been made to contact a responsible person, the name-server must then be removed from the given DNS <samp>domain</samp>.  </p>
+<p id="rfc.section.4.1.3.p.2">The name-server must not be removed from all WHOIS objects and DNS zones, as it may not be uniformly lame for other zones is serves.  </p>
+<p id="rfc.section.4.1.3.p.3">Only those name-servers flagged as lame should be removed from a given domain. The domain must <em>not</em> have all <samp>nserver</samp> attributes removed.  </p>
+<p id="rfc.section.4.1.3.p.4">These removals should be automated. An optional <samp>remarks</samp> line may be added to the domain record in the database.  </p>
+<h1 id="rfc.section.4.1.4"><a href="#rfc.section.4.1.4">4.1.4.</a> <a href="#reinstatement" id="reinstatement">Re-instatement</a></h1>
+<p id="rfc.section.4.1.4.p.1">Once corrected or alternate name-servers are available for a given reverse DNS zone, the responsible person(s) would add delegation to them in the same way as a new delegation is done for a new IP assignment or allocation.  </p>
+<p id="rfc.section.4.1.4.p.2">This process is  found in the AFRINIC document "<a href="https://www.afrinic.net/library/corporate-documents/216-how-to-request-reverse-delegation-in-afrinic-region">How to request reverse delegation in AFRINIC region?</a>".  </p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#further-information" id="further-information">Further Information</a></h1>
+<h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#similar-policies-in-other-regions" id="similar-policies-in-other-regions">Similar policies in other regions</a></h1>
+<p/>
+
+<ul>
+  <li>ARIN: <a href="https://www.arin.net/policy/proposals/2002_1.html">Policy 2002-1: Lame Delegations in IN-ADDR.ARPA</a></li>
+  <li>APNIC: <a href="https://www.apnic.net/community/policy/proposals/prop-038/">prop-038: Amending APNIC&#8217;s lame DNS reverse delegation policy</a></li>
+  <li>LACNIC: <a href="http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-delegation-en.pdf">Lame Delegation Policy within the Region Covered by LACNIC</a></li>
+  <li>RIPE NCC: No known policy at this time.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#possible-imapcts" id="possible-imapcts">Possible Imapct(s)</a></h1>
+<p id="rfc.section.5.2.p.1">A DNS delegation of a child-zone by lame NS records in the parent-zone will result in partial or complete failure of the child-zone.  </p>
+<p id="rfc.section.5.2.p.2">Therefore, removing these lame records at the parent will have no further adverse affects on the child zone.  </p>
+<p id="rfc.section.5.2.p.3">In the case of partial lameness, where not <em>all</em> name-servers are found to be lame, the impact will be positive: The removal of failing delegations will result in no DNS failures, rather than partial.  </p>
+<h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> <a href="#glossary" id="glossary">Glossary</a></h1>
+<p/>
+
+<ul>
+  <li>DNS: Domain Name System</li>
+  <li>RIR: Regional Internet Registry</li>
+  <li>Majority RIR: Holds the parent allocation from IANA.  <br/></li>
+  <li>Minority RIR: Administrates space within the majority allocation.</li>
+  <li>Legacy Internet Resources: Internet number resources obtained prior to or otherwise outside the current hierarchical Internet registry system.</li>
+  <li>SOA record: "Start Of Authority" record, at the head of every DNS zone.</li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.appendix.B"><a href="#rfc.appendix.B">Appendix B.</a> <a href="#revision-history" id="revision-history">Revision History</a></h1>
 <p/>
 
 <ol>
-  <li>2017-01-06 -- Revision: Fir st draft (01)</li>
+  <li>2017-03-06 -- Revision: First draft (00)</li>
 </ol>
 
 <p> </p>
