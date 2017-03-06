@@ -159,7 +159,7 @@ This process is  found in the AFRINIC document "[How to request reverse delegati
  * LACNIC: [Lame Delegation Policy within the Region Covered by LACNIC](http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-delegation-en.pdf)
  * RIPE NCC: No known policy at this time. 
 
-## Possible Imapct(s)
+## Possible Operational Impact(s)
 
 A DNS delegation of a child-zone by lame NS records in the parent-zone will result in partial or complete failure of the child-zone.
 

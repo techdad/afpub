@@ -38,7 +38,7 @@ Table of Contents
        4.1.4.  Re-instatement  . . . . . . . . . . . . . . . . . . .   5
    5.  Further Information . . . . . . . . . . . . . . . . . . . . .   5
      5.1.  Similar policies in other regions . . . . . . . . . . . .   5
-     5.2.  Possible Imapct(s)  . . . . . . . . . . . . . . . . . . .   5
+     5.2.  Possible Operational Impact(s)  . . . . . . . . . . . . .   5
      6.1.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   5
    Appendix A.  Glossary . . . . . . . . . . . . . . . . . . . . . .   6
    Appendix B.  Revision History . . . . . . . . . . . . . . . . . .   6
@@ -250,7 +250,7 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
    o  RIPE NCC: No known policy at this time.
 
-5.2.  Possible Imapct(s)
+5.2.  Possible Operational Impact(s)
 
    A DNS delegation of a child-zone by lame NS records in the parent-
    zone will result in partial or complete failure of the child-zone.
