@@ -8,7 +8,7 @@
     area = ""
     workgroup = "AFRINIC Policy"
     
-    date = 2017-03-06T00:00:00Z
+    date = 2017-03-07T00:00:00Z
 
     [pi]
     private = "yes"
@@ -61,11 +61,11 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Background: What is "Lame Delegation"?
 
-In the DNS, generally, a lame delegation is a type of DNS misconfiguration error that results when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name. For example, if a name server is delegated the responsibility for providing a name service for a zone (via NS records) and it is not actually doing it i.e. the name server is neither set up as a primary nor as a secondary server, the NS record is considered to be ‘lame’ [RFC1912](https://www.ietf.org/rfc/rfc1912.txt).
+In the DNS, a lame delegation is a type of DNS misconfiguration error that occurs when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name. For example, if a name server is delegated the responsibility for providing a name service for a zone (via NS records) and it is not actually doing it, i.e. the name server is neither set up as a primary nor secondary server, or is unresponsive, then the NS record is considered to be ‘lame’. ([RFC1912](https://www.ietf.org/rfc/rfc1912.txt)).
 
 ## Impact of Lame Delegations in the Global DNS
 
-In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records, delegating authority further down the chain of authority.
+In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records (as in the example above), delegating authority further down the chain of authority.
 
 With such a delegation resulting in a lame responses, the most obvious  issue is complete failure for the specific .ARPA sub-zone that is being delegated to.
 
@@ -77,11 +77,11 @@ But comparing to a lame delegation, the client receives a referral to the lame (
 
 If the first name-server in the set fails, the client may try the remainder, one by one if all are lame.
 
-In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for a time-out before trying the next or failing. 
+In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for a time-out before trying the alternate NS, or failing.
 
 In summary, lame name-server delegations as compared to no delegation result in additional DNS traffic and a far greater time to respond for the client, with the same practical end outcome.
 
-In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s). 
+In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s).
 
 
 # How this Policy Addresses the Problem
@@ -92,7 +92,7 @@ This policy lays out a process to monitor for name-server records resulting in l
 
 ## Scope of the Policy
 
-This policy is intended to apply only to the DNS zones under in-addr.arpa and ip6.arpa managed by AFRINIC. And should check every single NS record as sourced from `domain` objects in the AFRINIC WHOIS database.
+This policy is intended to apply only to the DNS zones under in-addr.arpa and ip6.arpa managed by AFRINIC. Checks should be done for every single NS record as sourced from `domain` objects in the AFRINIC WHOIS database.
 
 More specifically, this policy is only applicable to reverse DNS delegations managed within the AFRINIC region for AFRINIC majority RIR IP allocations and assignments.
 
@@ -118,7 +118,7 @@ It is recommended that when a name-server fails a check for the first time, this
 
 ### Notification
 
-Once one or more name-servers are flagged as lame, a reasonable attempt must be made to contact the person(s) responsible for the `domain` object and the DNS delegation.
+After one or more name-servers are flagged as lame, a reasonable attempt must be made to contact the person(s) responsible for the `domain` object and the DNS delegation.
 
 It is recommended that all of the `admin-c`, `tech-c` and `zone-c` contacts be tried in parallel.
 
@@ -136,17 +136,17 @@ The name-server must not be removed from all WHOIS objects and DNS zones, as it 
 
 Only those name-servers flagged as lame should be removed from a given domain. The domain must *not* have all `nserver` attributes removed.
 
-These removals should be automated. An optional `remarks` line may be added to the domain record in the database.
+These removals should be automated. An optional `remarks` line may be added to the `domain` record in the database.
 
-A domain object having all its name-server attributes identified as lame should be removed from the database.
+Should a given domain have all it's name-server's identified as lame, and thus removed, it must then also be removed from the database, due to the `nserver` attribute being mandatory for `domain` objects.
+
+Historical information about removed name-servers and domain objects should be archived for a reasonable amount of time and made available to the member for informational purpose.
 
 ### Re-instatement
 
-Once corrected or alternate name-servers are available for a given reverse DNS zone, the responsible person(s) would add delegation to them in the same way as a new delegation is done for a new IP assignment or allocation.
+Once name-servers are fixed, or alternate name-servers are available for a given reverse DNS zone, the responsible person(s) would add delegation to them in the same way as a new delegation is done for a new IP assignment or allocation.
 
 This process is  found in the AFRINIC document "[How to request reverse delegation in AFRINIC region?](https://www.afrinic.net/library/corporate-documents/216-how-to-request-reverse-delegation-in-afrinic-region)".
-
-Historical information about removed name-servers and domain objects should be archived for a reasonable amount of time and made available to the member for informational purpose.
 
 
 # Further Information
@@ -185,5 +185,5 @@ In the case of partial lameness, where not *all* name-servers are found to be la
 
 # Revision History
 
- 1. 2017-03-06 -- Revision: First draft (00)
+ 1. 2017-03-07 -- Revision: First draft (00)
 
