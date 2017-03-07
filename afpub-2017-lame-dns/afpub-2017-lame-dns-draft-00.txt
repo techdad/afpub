@@ -358,7 +358,7 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
    Jaco Engelbrecht
 
-   Email: bje@serendipity.org.za
+   Email: jaco@jacoengelbrecht.eu
 
 
 

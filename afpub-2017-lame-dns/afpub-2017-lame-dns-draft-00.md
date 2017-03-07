@@ -44,7 +44,7 @@
     surname="Engelbrecht"
     fullname="Jaco Engelbrecht"
       [author.address]
-      email = "bje@serendipity.org.za"
+      email = "jaco@jacoengelbrecht.eu"
 %%%
 
 {mainmatter}
