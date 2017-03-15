@@ -6,7 +6,7 @@
                                                               A. Phokeer
                                                                  AFRINIC
                                                             N. Goburdhan
-                                                                  INX-ZA
+                                                   Packet Clearing House
                                                           J. Engelbrecht
                                                            March 7, 2017
 
@@ -63,14 +63,13 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 2.1.  Background: What is "Lame Delegation"?
 
    In the DNS, a lame delegation is a type of DNS misconfiguration error
-   that occurs when a name server which is designated as the
-   authoritative server for a domain name, when queried, does not have
-   authoritative data for that name.  For example, if a name server is
-   delegated the responsibility for providing a name service for a zone
-   (via NS records) and it is not actually doing it, i.e. the name
-   server is neither set up as a primary nor secondary server, or is
-   unresponsive, then the NS record is considered to be 'lame'.
-   (RFC1912 [2]).
+   that occurs when a name server that is designated as an authoritative
+   server for a domain name, does not return authoritative data for that
+   name, when queried.  For example, if a name server is delegated the
+   responsibility for providing a name service for a zone (via NS
+   records) and it is not actually doing it, i.e. the name server is
+   neither set up as a primary nor secondary server, or is unresponsive,
+   then the NS record is considered to be 'lame'.  (RFC1912 [2]).
 
 2.2.  Impact of Lame Delegations in the Global DNS
 
@@ -83,7 +82,7 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
    that is being delegated to.
 
    This is similar to not having any delegations in place at all: The
-   sub-set of .ARPA records cannot be found and so reverse DNS lookups
+   sub-set of .ARPA records cannot be found, and so reverse DNS lookups
    will fail for that set of IP address resources.
 
    With no delegation in place, the failure is immediate and final.  The
@@ -100,8 +99,9 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
    In some cases the lameness is a result of non-authority or missing
    records, but in others the lame name-server is non-existent or
-   unresponsive.  In these cases, the client also has to wait for a
-   time-out before trying the alternate NS, or failing.
+   unresponsive.  In these cases, the client also has to wait for the
+   request to time-out before trying the alternate NS, or failing
+   completely.
 
    In summary, lame name-server delegations as compared to no delegation
    result in additional DNS traffic and a far greater time to respond
@@ -170,9 +170,9 @@ Shaw, et al.              AFPUB-2017-DNS001-00                  [Page 3]
 AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
 
-   It is recommended that when a name-server fails a check for the first
-   time, this is initially just recorded.  Only after multiple lameness
-   checks failing should a name-server be flagged for further action.
+   If a name-server fails a check for the first time, this is initially
+   just recorded.  Only after failing multiple lameness checks, should a
+   name-server be flagged for further action.
 
 4.1.2.  Notification
 
@@ -180,8 +180,8 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
    attempt must be made to contact the person(s) responsible for the
    "domain" object and the DNS delegation.
 
-   It is recommended that all of the "admin-c", "tech-c" and "zone-c"
-   contacts be tried in parallel.
+   All of the "admin-c", "tech-c" and "zone-c" contacts should be tried
+   in parallel.
 
    In addition, contact information may be extracted from associated
    "org" and/or "mnt-by" attributes when appropriate.
@@ -189,9 +189,8 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
    Unanswered notification communications should also be re-tried more
    than once before moving on to further actions.
 
-   It is recommended that the communication frequency, communication
-   method(s) and number of attempts should be standardised and publicly
-   documented.
+   The communication frequency, communication method(s) and number of
+   attempts should be standardised and publicly documented.
 
 4.1.3.  Delegation Removal
 
@@ -201,7 +200,7 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
    given DNS "domain".
 
    The name-server must not be removed from all WHOIS objects and DNS
-   zones, as it may not be uniformly lame for other zones is serves.
+   zones, as it may not be uniformly lame for other zones it serves.
 
    Only those name-servers flagged as lame should be removed from a
    given domain.  The domain must _not_ have all "nserver" attributes
@@ -217,6 +216,7 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
    Historical information about removed name-servers and domain objects
    should be archived for a reasonable amount of time and made available
    to the member for informational purpose.
+
 
 
 
@@ -351,9 +351,9 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
 
    Nishal Goburdhan
-   INX-ZA
+   Packet Clearing House
 
-   Email: nishal@inx.net.za
+   Email: nishal@pch.net
 
 
    Jaco Engelbrecht

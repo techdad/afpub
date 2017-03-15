@@ -431,7 +431,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">INX-ZA</td>
+  <td class="right">Packet Clearing House</td>
 </tr>
 <tr>
   <td class="left"></td>
@@ -485,15 +485,15 @@
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://www.rfc-editor.org/rfc/rfc2119.txt">RFC2119</a>.  </p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#problem-addressed-by-this-policy" id="problem-addressed-by-this-policy">Problem Addressed by this Policy</a></h1>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#background-what-is-lame-delegation" id="background-what-is-lame-delegation">Background: What is "Lame Delegation"?</a></h1>
-<p id="rfc.section.2.1.p.1">In the DNS, a lame delegation is a type of DNS misconfiguration error that occurs when a name server which is designated as the authoritative server for a domain name, when queried, does not have authoritative data for that name. For example, if a name server is delegated the responsibility for providing a name service for a zone (via NS records) and it is not actually doing it, i.e. the name server is neither set up as a primary nor secondary server, or is unresponsive, then the NS record is considered to be &#8216;lame&#8217;. (<a href="https://www.ietf.org/rfc/rfc1912.txt">RFC1912</a>).  </p>
+<p id="rfc.section.2.1.p.1">In the DNS, a lame delegation is a type of DNS misconfiguration error that occurs when a name server that is designated as an authoritative server for a domain name, does not return authoritative data for that name, when queried. For example, if a name server is delegated the responsibility for providing a name service for a zone (via NS records) and it is not actually doing it, i.e. the name server is neither set up as a primary nor secondary server, or is unresponsive, then the NS record is considered to be &#8216;lame&#8217;. (<a href="https://www.ietf.org/rfc/rfc1912.txt">RFC1912</a>).  </p>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#impact-of-lame-delegations-in-the-global-dns" id="impact-of-lame-delegations-in-the-global-dns">Impact of Lame Delegations in the Global DNS</a></h1>
 <p id="rfc.section.2.2.p.1">In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records (as in the example above), delegating authority further down the chain of authority.  </p>
-<p id="rfc.section.2.2.p.2">With such a delegation resulting in a lame responses, the most obvious  issue is complete failure for the specific .ARPA sub-zone that is being delegated to.  </p>
-<p id="rfc.section.2.2.p.3">This is similar to not having any delegations in place at all: The sub-set of .ARPA records cannot be found and so reverse DNS lookups will fail for that set of IP address resources.  </p>
+<p id="rfc.section.2.2.p.2">With such a delegation resulting in a lame responses, the most obvious issue is complete failure for the specific .ARPA sub-zone that is being delegated to.  </p>
+<p id="rfc.section.2.2.p.3">This is similar to not having any delegations in place at all: The sub-set of .ARPA records cannot be found, and so reverse DNS lookups will fail for that set of IP address resources.  </p>
 <p id="rfc.section.2.2.p.4">With no delegation in place, the failure is immediate and final. The querying client for a particular zone will get a fast response from the parent zone's name-server, and do no further lookups.  </p>
 <p id="rfc.section.2.2.p.5">But comparing to a lame delegation, the client receives a referral to the lame (and invalid or broken) name-server(s). It then has to look them up by name before then querying one or more for the originally requested record.  </p>
 <p id="rfc.section.2.2.p.6">If the first name-server in the set fails, the client may try the remainder, one by one if all are lame.  </p>
-<p id="rfc.section.2.2.p.7">In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for a time-out before trying the alternate NS, or failing.  </p>
+<p id="rfc.section.2.2.p.7">In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for the request to time-out before trying the alternate NS, or failing completely.  </p>
 <p id="rfc.section.2.2.p.8">In summary, lame name-server delegations as compared to no delegation result in additional DNS traffic and a far greater time to respond for the client, with the same practical end outcome.  </p>
 <p id="rfc.section.2.2.p.9">In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s).  </p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#how-this-policy-addresses-the-problem" id="how-this-policy-addresses-the-problem">How this Policy Addresses the Problem</a></h1>
@@ -517,23 +517,23 @@
 
 <p> </p>
 <p id="rfc.section.4.1.1.p.4">This periodic checking should be automated. The checks should be relatively frequent, but not so frequent as to cause any operational impact to either AFRINIC systems or the global DNS.  </p>
-<p id="rfc.section.4.1.1.p.5">It is recommended that when a name-server fails a check for the first time, this is initially just recorded. Only after multiple lameness checks failing should a name-server be flagged for further action.  </p>
+<p id="rfc.section.4.1.1.p.5">If a name-server fails a check for the first time, this is initially just recorded. Only after failing multiple lameness checks, should a name-server be flagged for further action.  </p>
 <h1 id="rfc.section.4.1.2"><a href="#rfc.section.4.1.2">4.1.2.</a> <a href="#notification" id="notification">Notification</a></h1>
 <p id="rfc.section.4.1.2.p.1">After one or more name-servers are flagged as lame, a reasonable attempt must be made to contact the person(s) responsible for the <samp>domain</samp> object and the DNS delegation.  </p>
-<p id="rfc.section.4.1.2.p.2">It is recommended that all of the <samp>admin-c</samp>, <samp>tech-c</samp> and <samp>zone-c</samp> contacts be tried in parallel.  </p>
+<p id="rfc.section.4.1.2.p.2">All of the <samp>admin-c</samp>, <samp>tech-c</samp> and <samp>zone-c</samp> contacts should be tried in parallel.  </p>
 <p id="rfc.section.4.1.2.p.3">In addition, contact information may be extracted from associated <samp>org</samp> and/or <samp>mnt-by</samp> attributes when appropriate.  </p>
 <p id="rfc.section.4.1.2.p.4">Unanswered notification communications should also be re-tried more than once before moving on to further actions.  </p>
-<p id="rfc.section.4.1.2.p.5">It is recommended that the communication frequency, communication method(s) and number of attempts should be standardised and publicly documented.  </p>
+<p id="rfc.section.4.1.2.p.5">The communication frequency, communication method(s) and number of attempts should be standardised and publicly documented.  </p>
 <h1 id="rfc.section.4.1.3"><a href="#rfc.section.4.1.3">4.1.3.</a> <a href="#delegation-removal" id="delegation-removal">Delegation Removal</a></h1>
 <p id="rfc.section.4.1.3.p.1">Once a given name-server had been determined to be lame for a given DNS <samp>domain</samp>, and reasonable attempts have been made to contact a responsible person, the name-server must then be removed from the given DNS <samp>domain</samp>.  </p>
-<p id="rfc.section.4.1.3.p.2">The name-server must not be removed from all WHOIS objects and DNS zones, as it may not be uniformly lame for other zones is serves.  </p>
+<p id="rfc.section.4.1.3.p.2">The name-server must not be removed from all WHOIS objects and DNS zones, as it may not be uniformly lame for other zones it serves.  </p>
 <p id="rfc.section.4.1.3.p.3">Only those name-servers flagged as lame should be removed from a given domain. The domain must <em>not</em> have all <samp>nserver</samp> attributes removed.  </p>
 <p id="rfc.section.4.1.3.p.4">These removals should be automated. An optional <samp>remarks</samp> line may be added to the <samp>domain</samp> record in the database.  </p>
 <p id="rfc.section.4.1.3.p.5">Should a given domain have all it's name-server's identified as lame, and thus removed, it must then also be removed from the database, due to the <samp>nserver</samp> attribute being mandatory for <samp>domain</samp> objects.  </p>
 <p id="rfc.section.4.1.3.p.6">Historical information about removed name-servers and domain objects should be archived for a reasonable amount of time and made available to the member for informational purpose.  </p>
 <h1 id="rfc.section.4.1.4"><a href="#rfc.section.4.1.4">4.1.4.</a> <a href="#reinstatement" id="reinstatement">Re-instatement</a></h1>
 <p id="rfc.section.4.1.4.p.1">Once name-servers are fixed, or alternate name-servers are available for a given reverse DNS zone, the responsible person(s) would add delegation to them in the same way as a new delegation is done for a new IP assignment or allocation.  </p>
-<p id="rfc.section.4.1.4.p.2">This process is  found in the AFRINIC document "<a href="https://www.afrinic.net/library/corporate-documents/216-how-to-request-reverse-delegation-in-afrinic-region">How to request reverse delegation in AFRINIC region?</a>".  </p>
+<p id="rfc.section.4.1.4.p.2">This process is found in the AFRINIC document "<a href="https://www.afrinic.net/library/corporate-documents/216-how-to-request-reverse-delegation-in-afrinic-region">How to request reverse delegation in AFRINIC region?</a>".  </p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#further-information" id="further-information">Further Information</a></h1>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#similar-policies-in-other-regions" id="similar-policies-in-other-regions">Similar policies in other regions</a></h1>
 <p/>
@@ -633,7 +633,7 @@
 		<span class="family-name">Goburdhan</span>
 	  </span>
 	</span>
-	<span class="org vcardline">INX-ZA</span>
+	<span class="org vcardline">Packet Clearing House</span>
 	<span class="adr">
 	  
 	  <span class="vcardline">
@@ -643,7 +643,7 @@
 	  </span>
 	  <span class="country-name vcardline"></span>
 	</span>
-	<span class="vcardline">EMail: <a href="mailto:nishal@inx.net.za">nishal@inx.net.za</a></span>
+	<span class="vcardline">EMail: <a href="mailto:nishal@pch.net">nishal@pch.net</a></span>
 
   </address>
 </div><div class="avoidbreak">
