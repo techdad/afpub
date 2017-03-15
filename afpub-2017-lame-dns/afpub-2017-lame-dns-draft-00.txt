@@ -8,7 +8,7 @@
                                                             N. Goburdhan
                                                    Packet Clearing House
                                                           J. Engelbrecht
-                                                           March 7, 2017
+                                                          March 15, 2017
 
 
                 Lame delegations in AFRINIC reverse DNS
@@ -323,7 +323,7 @@ Appendix A.  Glossary
 
 Appendix B.  Revision History
 
-   1.  2017-03-07 -- Revision: First draft (00)
+   1.  2017-15-07 -- Revision: First draft (00)
 
 Authors' Addresses
 

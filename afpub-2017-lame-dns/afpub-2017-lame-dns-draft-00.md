@@ -8,7 +8,7 @@
     area = ""
     workgroup = "AFRINIC Policy"
     
-    date = 2017-03-07T00:00:00Z
+    date = 2017-03-15T00:00:00Z
 
     [pi]
     private = "yes"
@@ -185,5 +185,5 @@ In the case of partial lameness, where not *all* name-servers are found to be la
 
 # Revision History
 
- 1. 2017-03-07 -- Revision: First draft (00)
+ 1. 2017-15-07 -- Revision: First draft (00)
 
