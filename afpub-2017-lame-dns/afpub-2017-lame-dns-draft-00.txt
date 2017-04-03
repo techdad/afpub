@@ -323,7 +323,7 @@ Appendix A.  Glossary
 
 Appendix B.  Revision History
 
-   1.  2017-15-07 -- Revision: First draft (00)
+   1.  2017-03-15 -- Revision: First draft (00)
 
 Authors' Addresses
 

@@ -155,7 +155,7 @@ This process is found in the AFRINIC document "[How to request reverse delegatio
 
  * ARIN: [Policy 2002-1: Lame Delegations in IN-ADDR.ARPA](https://www.arin.net/policy/proposals/2002_1.html)
  * APNIC: [prop-038: Amending APNIC’s lame DNS reverse delegation policy](https://www.apnic.net/community/policy/proposals/prop-038/)
- * LACNIC: [Lame Delegation Policy within the Region Covered by LACNIC](http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-delegation-en.pdf)
+ * LACNIC: [Lame Delegation Policy within the Region Covered by LACNIC](http://www.lacnic.net/en/web/lacnic/manual-6)
  * RIPE NCC: No known policy at this time.
 
 ## DNS misconfiguration studies
@@ -185,5 +185,5 @@ In the case of partial lameness, where not *all* name-servers are found to be la
 
 # Revision History
 
- 1. 2017-15-07 -- Revision: First draft (00)
+ 1. 2017-03-15 -- Revision: First draft (00)
 
