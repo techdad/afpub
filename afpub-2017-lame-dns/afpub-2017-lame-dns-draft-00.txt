@@ -297,8 +297,7 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
    [5] https://www.apnic.net/community/policy/proposals/prop-038/
 
-   [6] http://www2.lacnic.net/documentos/politicas/lacnic-V-lame-
-       delegation-en.pdf
+   [6] http://www.lacnic.net/en/web/lacnic/manual-6
 
    [7] http://afrinic.net/blog/165-how-lame-are-our-reverse-delegations
 
@@ -327,21 +326,16 @@ Appendix B.  Revision History
 
 Authors' Addresses
 
+   Daniel Shaw
+   AFRINIC
 
-
-
+   Email: daniel@afrinic.net
 
 
 
 Shaw, et al.              AFPUB-2017-DNS001-00                  [Page 6]
 
 AFRINIC Policy       Lame delegations in reverse DNS          March 2017
-
-
-   Daniel Shaw
-   AFRINIC
-
-   Email: daniel@afrinic.net
 
 
    Amreesh Phokeer
@@ -359,6 +353,12 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
    Jaco Engelbrecht
 
    Email: jaco@jacoengelbrecht.eu
+
+
+
+
+
+
 
 
 

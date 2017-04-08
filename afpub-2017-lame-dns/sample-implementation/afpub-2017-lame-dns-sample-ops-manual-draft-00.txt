@@ -1,0 +1,224 @@
+
+
+
+
+                                                                 D. Shaw
+                                                              A. Phokeer
+                                                                 AFRINIC
+                                                            N. Goburdhan
+                                                   Packet Clearing House
+                                                          J. Engelbrecht
+                                                           April 8, 2017
+
+
+                   Lame DNS Sample Operational Manual
+                        AFPUB-2017-DNS001-OPS-00
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   1
+     1.1.  Requirements Language . . . . . . . . . . . . . . . . . .   1
+     1.2.  What Is This Document?  . . . . . . . . . . . . . . . . .   1
+   2.  Sample Policy Implementation Procedure  . . . . . . . . . . .   2
+     2.1.  Scope . . . . . . . . . . . . . . . . . . . . . . . . . .   2
+     2.2.  Definition of 'LAME'  . . . . . . . . . . . . . . . . . .   2
+     2.3.  Detection, Notification and Removal . . . . . . . . . . .   2
+       2.3.1.  'Lameness' Checking Method  . . . . . . . . . . . . .   2
+       2.3.2.  Timeline for Handling Lame Delegations  . . . . . . .   2
+       2.3.3.  Object Archival . . . . . . . . . . . . . . . . . . .   3
+       2.3.4.  Consequences of Domain Objects Removal  . . . . . . .   3
+       2.3.5.  Reporting . . . . . . . . . . . . . . . . . . . . . .   3
+       2.3.6.  Lameness Verification . . . . . . . . . . . . . . . .   4
+     3.1.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   4
+   Appendix A.  Revision History . . . . . . . . . . . . . . . . . .   4
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   4
+
+1.  Introduction
+
+1.1.  Requirements Language
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in RFC2119 [1].
+
+1.2.  What Is This Document?
+
+   This document is a possible guideline for an operational manual to
+   accompany the AFRINIC Policy submitted as AFPUB-2017-DNS001-00 should
+   it proceed through the AFRINIC Policy Development Process.
+
+   This document is intended to provide an example framework of how the
+   authors of the AFPUB-2017-DNS001-00 policy think that the policy
+   could be implemented if accepted.
+
+
+
+Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 1]
+
+AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
+
+
+2.  Sample Policy Implementation Procedure
+
+2.1.  Scope
+
+   This procedure applies to each nameserver "nserver" record in
+   "domain" objects in the AFRINIC WHOIS database.  The relationship
+   between "domain" objects to "nserver" records is one-to-many.
+
+2.2.  Definition of 'LAME'
+
+   For the purpose of this policy implementation, a DNS nameserver is
+   considered lame if, when queried using a standard DNS client or
+   library, the server does not respond back with an authoritative
+   answer for the specific domain.
+
+   No differentiation is made between the behaviour of the DNS server:
+
+   o  Not responding at all.
+
+   o  Responding in some way, but not for the specific queried domain.
+
+   o  Responding for the correct domain, but without the authority bit
+      set.
+
+   _In all the above, the server is considered equally as 'lame'._
+
+2.3.  Detection, Notification and Removal
+
+2.3.1.  'Lameness' Checking Method
+
+   Tests will be run on a monthly basis on all nameservers found as
+   "nserver" records within "doamin" objects in the AFRINIC WHOIS
+   Database.  Checks will be run from at least two different
+   geographical locations, with each site using both address families
+   (ie.  IPv4 and IPv6).
+
+   _A successful recorded answer for a single address family, or from a
+   single test location is sufficient to NOT consider the server as
+   lame._
+
+2.3.2.  Timeline for Handling Lame Delegations
+
+
+
+
+
+
+
+
+
+
+Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 2]
+
+AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
+
+
+   +----------+------------+-------------------------------------------+
+   | Timeline |   Event    |                   Action                  |
+   +----------+------------+-------------------------------------------+
+   |  Day 0   |    Lame    |  Lame delegation is recorded. Name server |
+   |          | delegation |  is re-tested for lame delegation every 3 |
+   |          |  is first  |                   days.                   |
+   |          | detected.  |                                           |
+   |  Day 15  | Delegation |   A remark is added in the domain object  |
+   |          |  is still  |      for the lame name servers. Email     |
+   |          |  detected  |   notification is sent every 5 days for   |
+   |          |  as lame   |    another 15 days (3 notifications) to   |
+   |          |  (after 5  | "Admin-C" and "Tech-C" contacts. Lameness |
+   |          | additional |  checks are still run every 3 days. If a  |
+   |          |  checks).  |    nameserver is not lame anymore, the    |
+   |          |            |      corresponding remark is removed.     |
+   |  Day 30  | Delegation |  The "nserver" record is removed from all |
+   |          |  is still  |    "domain" objects containing it. Any    |
+   |          |   lame.    |     "domain" object that thus has zero    |
+   |          |            |   "nserver" records, is removed from the  |
+   |          |            |   WHOIS database. "Admin-C" and "Tech-C"  |
+   |          |            |  contacts are notified of all changes. In |
+   |          |            |    all instances the original "domain"    |
+   |          |            |            object is archived.            |
+   +----------+------------+-------------------------------------------+
+
+2.3.3.  Object Archival
+
+   All nameserver records and domain objects removed from the visible
+   WHOIS database, should be viewable on the MyAFRINIC portal for a
+   period of 90 days, after which the archived version will be discarded
+   permanently.
+
+2.3.4.  Consequences of Domain Objects Removal
+
+   Should all the "nserver" records for a given domain object be
+   removed, the domain object must be completely removed, as the nserver
+   record is a mandatory field for the domain object template.
+
+   Subsequent DNS lookup of the removed domains in the DNS will be
+   answered by an NXDOMAIN response, meaning this domain is not listed
+   in any AFRINIC arpa DNS zone.
+
+2.3.5.  Reporting
+
+   General lame delegation reports should to be published monthly.  In
+   addition, a report on lame delegation _cleanup_ should be produced at
+   least twice a year.
+
+
+
+
+Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 3]
+
+AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
+
+
+2.3.6.  Lameness Verification
+
+   AFRINIC should put in place a public lameness checker tool.  And new
+   nameserver entries for domain objects could be systematically checked
+   for lameness prior to data going into the public WHOIS database.
+
+3.  References
+
+3.1.  URIs
+
+   [1] https://www.rfc-editor.org/rfc/rfc2119.txt
+
+Appendix A.  Revision History
+
+   1.  2017-04-08 -- Revision: First draft (00)
+
+Authors' Addresses
+
+   Daniel Shaw
+   AFRINIC
+
+   Email: daniel@afrinic.net
+
+
+   Amreesh Phokeer
+   AFRINIC
+
+   Email: amreesh@afrinic.net
+
+
+   Nishal Goburdhan
+   Packet Clearing House
+
+   Email: nishal@pch.net
+
+
+   Jaco Engelbrecht
+
+   Email: jaco@jacoengelbrecht.eu
+
+
+
+
+
+
+
+
+
+
+
+
+Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 4]
