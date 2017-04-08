@@ -314,9 +314,9 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
    [8] http://web.cs.ucla.edu/~lixia/papers/09DNSConfig.pdf
 
-   [9] https://raw.githubusercontent.com/techdad/afpub/master/afpub-
-       2017-lame-dns/sample-implementation/afpub-2017-lame-dns-sample-
-       ops-manual-draft-00.txt
+   [9] https://raw.githubusercontent.com/techdad/afpub-2017-lame-
+       dns/master/sample-implementation/afpub-2017-lame-dns-sample-ops-
+       manual-draft-00.txt
 
 Appendix A.  Glossary
 
