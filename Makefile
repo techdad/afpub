@@ -1,8 +1,8 @@
 MMARK:=mmark -xml2 -page
 
-text := $(patsubst %.md,%.txt,$(wildcard *.md))
-html := $(patsubst %.md,%.html,$(wildcard *.md))
-base := $(patsubst %.md,%,$(wildcard *.md))
+text := $(patsubst %.md,%.txt,$(wildcard afpub*.md))
+html := $(patsubst %.md,%.html,$(wildcard afpub*.md))
+base := $(patsubst %.md,%,$(wildcard afpub*.md))
 mdown := $(wildcard *.md)
 
 all: text html
