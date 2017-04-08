@@ -3,7 +3,7 @@ MMARK:=mmark -xml2 -page
 text := $(patsubst %.md,%.txt,$(wildcard afpub*.md))
 html := $(patsubst %.md,%.html,$(wildcard afpub*.md))
 base := $(patsubst %.md,%,$(wildcard afpub*.md))
-mdown := $(wildcard *.md)
+mdown := $(wildcard afpub*.md)
 
 all: text html
 .PHONY: all
