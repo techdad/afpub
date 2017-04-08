@@ -58,28 +58,27 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## What Is This Document?
 
-This document is a possible guideline for an  operational manual to accompany the AFRINIC Policy submitted as AFPUB-2017-DNS001-00 should it proceed through the AFRINIC Policy Development Process.
+This document is a sample guideline for an operational manual to accompany the AFRINIC Policy submitted as AFPUB-2017-DNS001-00, should it proceed through the AFRINIC Policy Development Process.
 
-This document is intended to provide an example framework of how the authors of the AFPUB-2017-DNS001-00 policy think that the policy could be implemented if accepted. 
-
+The authors are aware that there is significant work to be done to implement the policy should it pass. They provide this *guideline* for implementation to AFRINIC staff to use, should they choose.
 
 # Sample Policy Implementation Procedure
 
 ## Scope
 
-This procedure applies to each nameserver `nserver` record in `domain` objects in the AFRINIC WHOIS database. The relationship between `domain` objects to `nserver` records is one-to-many.
+This procedure applies to each `nserver` record within `domain` objects in the AFRINIC WHOIS database. The relationship between `domain` objects to `nserver` records is one-to-many.
 
 ## Definition of 'LAME'
 
 For the purpose of this policy implementation, a DNS nameserver is considered lame if, when queried using a standard DNS client or library, the server does not respond back with an authoritative answer for the specific domain.
 
-No differentiation is made between the behaviour of the DNS server:
+No differentiation is here made between the behaviour of the DNS server:
 
 * Not responding at all.
-* Responding in some way, but not for the specific queried domain.
+* Responding in some way, but not for the specific domain queried.
 * Responding for the correct domain, but without the authority bit set.
 
-*In all the above, the server is considered equally as 'lame'.*
+*With all the three of the above, the server is considered equally as 'lame'.*
 
 ## Detection, Notification and Removal
 
@@ -87,19 +86,19 @@ No differentiation is made between the behaviour of the DNS server:
 
 Tests will be run on a monthly basis on all nameservers found as `nserver` records within `doamin` objects in the AFRINIC WHOIS Database. Checks will be run from at least two different geographical locations, with each site using both address families (ie. IPv4 and IPv6).
 
-*A successful recorded answer for a single address family, or from a single test location is sufficient to NOT consider the server as lame.*
+*Any single successful recorded authoritattive answer for a single address family, or from a single test location is sufficient to NOT consider the nameserver as lame.*
 
 ### Timeline for Handling Lame Delegations
 
- Timeline    | Event     | Action            |
--------------|-----------|-------------------|
+ Timeline    | Event    | Actions   |
+-------------|----------|-----------|
  Day 0       | Lame delegation is first detected.  | Lame delegation is recorded. Name server is re-tested for lame delegation every 3 days.
  Day 15      | Delegation is still detected as lame (after 5 additional checks).  | A remark is added in the domain object for the lame name servers. Email notification is sent every 5 days for another 15 days (3 notifications) to `Admin-C` and `Tech-C` contacts. Lameness checks are still run every 3 days. If a nameserver is not lame anymore, the corresponding remark is removed. |
  Day 30      | Delegation is still lame.  | The `nserver` record is removed from all `domain` objects containing it. Any `domain` object that thus has zero `nserver` records, is removed from the WHOIS database. `Admin-C` and `Tech-C` contacts are notified of all changes. In all instances the original `domain` object is archived.  |
 
 ### Object Archival
 
-All nameserver records and domain objects removed from the visible WHOIS database, should be viewable on the MyAFRINIC portal for a period of 90 days, after which the archived version will be discarded permanently.
+All nameserver records and domain objects removed from the visible WHOIS database should be viewable on the MyAFRINIC portal for a period of 90 days. After 90 days, the archived version will be discarded permanently.
 
 ### Consequences of Domain Objects Removal
 

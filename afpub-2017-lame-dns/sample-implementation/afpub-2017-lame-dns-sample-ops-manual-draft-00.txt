@@ -43,13 +43,13 @@ Table of Contents
 
 1.2.  What Is This Document?
 
-   This document is a possible guideline for an operational manual to
-   accompany the AFRINIC Policy submitted as AFPUB-2017-DNS001-00 should
-   it proceed through the AFRINIC Policy Development Process.
+   This document is a sample guideline for an operational manual to
+   accompany the AFRINIC Policy submitted as AFPUB-2017-DNS001-00,
+   should it proceed through the AFRINIC Policy Development Process.
 
-   This document is intended to provide an example framework of how the
-   authors of the AFPUB-2017-DNS001-00 policy think that the policy
-   could be implemented if accepted.
+   The authors are aware that there is significant work to be done to
+   implement the policy should it pass.  They provide this _guideline_
+   for implementation to AFRINIC staff to use, should they choose.
 
 
 
@@ -62,9 +62,9 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
 
 2.1.  Scope
 
-   This procedure applies to each nameserver "nserver" record in
-   "domain" objects in the AFRINIC WHOIS database.  The relationship
-   between "domain" objects to "nserver" records is one-to-many.
+   This procedure applies to each "nserver" record within "domain"
+   objects in the AFRINIC WHOIS database.  The relationship between
+   "domain" objects to "nserver" records is one-to-many.
 
 2.2.  Definition of 'LAME'
 
@@ -73,16 +73,18 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
    library, the server does not respond back with an authoritative
    answer for the specific domain.
 
-   No differentiation is made between the behaviour of the DNS server:
+   No differentiation is here made between the behaviour of the DNS
+   server:
 
    o  Not responding at all.
 
-   o  Responding in some way, but not for the specific queried domain.
+   o  Responding in some way, but not for the specific domain queried.
 
    o  Responding for the correct domain, but without the authority bit
       set.
 
-   _In all the above, the server is considered equally as 'lame'._
+   _With all the three of the above, the server is considered equally as
+   'lame'._
 
 2.3.  Detection, Notification and Removal
 
@@ -94,13 +96,11 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
    geographical locations, with each site using both address families
    (ie.  IPv4 and IPv6).
 
-   _A successful recorded answer for a single address family, or from a
-   single test location is sufficient to NOT consider the server as
-   lame._
+   _Any single successful recorded authoritattive answer for a single
+   address family, or from a single test location is sufficient to NOT
+   consider the nameserver as lame._
 
 2.3.2.  Timeline for Handling Lame Delegations
-
-
 
 
 
@@ -115,7 +115,7 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
 
 
    +----------+------------+-------------------------------------------+
-   | Timeline |   Event    |                   Action                  |
+   | Timeline |   Event    |                  Actions                  |
    +----------+------------+-------------------------------------------+
    |  Day 0   |    Lame    |  Lame delegation is recorded. Name server |
    |          | delegation |  is re-tested for lame delegation every 3 |
@@ -142,9 +142,9 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
 2.3.3.  Object Archival
 
    All nameserver records and domain objects removed from the visible
-   WHOIS database, should be viewable on the MyAFRINIC portal for a
-   period of 90 days, after which the archived version will be discarded
-   permanently.
+   WHOIS database should be viewable on the MyAFRINIC portal for a
+   period of 90 days.  After 90 days, the archived version will be
+   discarded permanently.
 
 2.3.4.  Consequences of Domain Objects Removal
 
