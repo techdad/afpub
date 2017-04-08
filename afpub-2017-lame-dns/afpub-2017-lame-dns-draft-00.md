@@ -171,6 +171,12 @@ Therefore, removing these lame records at the parent will have no further advers
 
 In the case of partial lameness, where not *all* name-servers are found to be lame, the impact will be positive: The removal of failing delegations will result in no DNS failures, rather than partial.
 
+## Sample Operations Guide
+
+The authors are aware that there would be significant work to be done to implement this policy. They have worked on a guideline for implementation, should the policy be passed.
+
+The sample operational manual is available [online](https://raw.githubusercontent.com/techdad/afpub/master/afpub-2017-lame-dns/sample-implementation/afpub-2017-lame-dns-sample-ops-manual-draft-00.txt) as a *guideline* to afrinic staff to use.  Input and text, is welcome, but please note that this is a sample for *implementation* and not part of the policy.
+
 
 {backmatter}
 

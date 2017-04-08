@@ -34,10 +34,11 @@ Table of Contents
      5.1.  Similar policies in other regions . . . . . . . . . . . .   5
      5.2.  DNS misconfiguration studies  . . . . . . . . . . . . . .   5
      5.3.  Possible Operational Impact(s)  . . . . . . . . . . . . .   5
+     5.4.  Sample Operations Guide . . . . . . . . . . . . . . . . .   6
      6.1.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   6
    Appendix A.  Glossary . . . . . . . . . . . . . . . . . . . . . .   6
-   Appendix B.  Revision History . . . . . . . . . . . . . . . . . .   6
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   6
+   Appendix B.  Revision History . . . . . . . . . . . . . . . . . .   7
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   7
 
 1.  Introduction
 
@@ -46,7 +47,6 @@ Table of Contents
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in RFC2119 [1].
-
 
 
 
@@ -282,6 +282,17 @@ Shaw, et al.              AFPUB-2017-DNS001-00                  [Page 5]
 AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
 
+5.4.  Sample Operations Guide
+
+   The authors are aware that there would be significant work to be done
+   to implement this policy.  They have worked on a guideline for
+   implementation, should the policy be passed.
+
+   The sample operational manual is available online [9] as a
+   _guideline_ to afrinic staff to use.  Input and text, is welcome, but
+   please note that this is a sample for _implementation_ and not part
+   of the policy.
+
 6.  References
 
 6.1.  URIs
@@ -303,6 +314,10 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
 
    [8] http://web.cs.ucla.edu/~lixia/papers/09DNSConfig.pdf
 
+   [9] https://raw.githubusercontent.com/techdad/afpub/master/afpub-
+       2017-lame-dns/sample-implementation/afpub-2017-lame-dns-sample-
+       ops-manual-draft-00.txt
+
 Appendix A.  Glossary
 
    o  DNS: Domain Name System
@@ -312,6 +327,16 @@ Appendix A.  Glossary
    o  Majority RIR: Holds the parent allocation from IANA.
 
    o  Minority RIR: Administrates space within the majority allocation.
+
+
+
+
+
+
+Shaw, et al.              AFPUB-2017-DNS001-00                  [Page 6]
+
+AFRINIC Policy       Lame delegations in reverse DNS          March 2017
+
 
    o  Legacy Internet Resources: Internet number resources obtained
       prior to or otherwise outside the current hierarchical Internet
@@ -332,12 +357,6 @@ Authors' Addresses
    Email: daniel@afrinic.net
 
 
-
-Shaw, et al.              AFPUB-2017-DNS001-00                  [Page 6]
-
-AFRINIC Policy       Lame delegations in reverse DNS          March 2017
-
-
    Amreesh Phokeer
    AFRINIC
 
@@ -353,25 +372,6 @@ AFRINIC Policy       Lame delegations in reverse DNS          March 2017
    Jaco Engelbrecht
 
    Email: jaco@jacoengelbrecht.eu
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
