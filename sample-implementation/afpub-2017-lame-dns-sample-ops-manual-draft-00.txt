@@ -11,7 +11,7 @@
                                                            April 8, 2017
 
 
-                  Lame DNS (Sample) Operational Manual
+                  Lame DNS Operational Manual (Sample)
                         AFPUB-2017-DNS001-OPS-00
 
 Table of Contents
@@ -55,7 +55,7 @@ Table of Contents
 
 Shaw, et al.            AFPUB-2017-DNS001-OPS-00                [Page 1]
 
-AFRINIC Ops            Lame DNS Operational Manual            April 2017
+AFRINIC Ops       Lame DNS Operational Manual (Sample)        April 2017
 
 
 2.  Sample Policy Implementation Procedure
@@ -111,7 +111,7 @@ AFRINIC Ops            Lame DNS Operational Manual            April 2017
 
 Shaw, et al.            AFPUB-2017-DNS001-OPS-00                [Page 2]
 
-AFRINIC Ops            Lame DNS Operational Manual            April 2017
+AFRINIC Ops       Lame DNS Operational Manual (Sample)        April 2017
 
 
    +----------+------------+-------------------------------------------+
@@ -167,7 +167,7 @@ AFRINIC Ops            Lame DNS Operational Manual            April 2017
 
 Shaw, et al.            AFPUB-2017-DNS001-OPS-00                [Page 3]
 
-AFRINIC Ops            Lame DNS Operational Manual            April 2017
+AFRINIC Ops       Lame DNS Operational Manual (Sample)        April 2017
 
 
 2.3.6.  Lameness Verification

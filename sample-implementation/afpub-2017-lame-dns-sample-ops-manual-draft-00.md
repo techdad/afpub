@@ -1,7 +1,7 @@
 %%%
 
-    Title = "Lame DNS (Sample) Operational Manual"
-    abbrev = "Lame DNS Operational Manual"
+    Title = "Lame DNS Operational Manual (Sample)"
+    abbrev = "Lame DNS Operational Manual (Sample)"
     category = "info"
     docName = "AFPUB-2017-DNS001-OPS-00"
     ipr = "trust200902"
