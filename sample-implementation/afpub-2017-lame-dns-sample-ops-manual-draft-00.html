@@ -479,7 +479,7 @@
 <p id="rfc.section.2.1.p.1">This procedure applies to each <samp>nserver</samp> record within <samp>domain</samp> objects in the AFRINIC WHOIS database. The relationship between <samp>domain</samp> objects to <samp>nserver</samp> records is one-to-many.  </p>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#definition-of-lame" id="definition-of-lame">Definition of 'LAME'</a></h1>
 <p id="rfc.section.2.2.p.1">For the purpose of this policy implementation, a DNS nameserver is considered lame if, when queried using a standard DNS client or library, the server does not respond back with an authoritative answer for the specific domain.  </p>
-<p id="rfc.section.2.2.p.2">No differentiation is here made between the behaviour of the DNS server: </p>
+<p id="rfc.section.2.2.p.2">No differentiation is made here between the behaviours of the DNS server: </p>
 <p/>
 
 <ul>
@@ -489,7 +489,7 @@
 </ul>
 
 <p> </p>
-<p><em>With all the three of the above, the server is considered equally as 'lame'.</em> </p>
+<p id="rfc.section.2.2.p.4">All the above variations result in a 'lame' delegation.  </p>
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#detection-notification-and-removal" id="detection-notification-and-removal">Detection, Notification and Removal</a></h1>
 <h1 id="rfc.section.2.3.1"><a href="#rfc.section.2.3.1">2.3.1.</a> <a href="#lameness-checking-method" id="lameness-checking-method">'Lameness' Checking Method</a></h1>
 <p id="rfc.section.2.3.1.p.1">Tests will be run on a monthly basis on all nameservers found as <samp>nserver</samp> records within <samp>doamin</samp> objects in the AFRINIC WHOIS Database. Checks will be run from at least two different geographical locations, with each site using both address families (ie. IPv4 and IPv6).  </p>

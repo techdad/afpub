@@ -72,13 +72,13 @@ This procedure applies to each `nserver` record within `domain` objects in the A
 
 For the purpose of this policy implementation, a DNS nameserver is considered lame if, when queried using a standard DNS client or library, the server does not respond back with an authoritative answer for the specific domain.
 
-No differentiation is here made between the behaviour of the DNS server:
+No differentiation is made here between the behaviours of the DNS server:
 
 * Not responding at all.
 * Responding in some way, but not for the specific domain queried.
 * Responding for the correct domain, but without the authority bit set.
 
-*With all the three of the above, the server is considered equally as 'lame'.*
+All the above variations result in a 'lame' delegation.
 
 ## Detection, Notification and Removal
 
