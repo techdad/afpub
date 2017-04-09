@@ -86,14 +86,14 @@ No differentiation is here made between the behaviour of the DNS server:
 
 Tests will be run on a monthly basis on all nameservers found as `nserver` records within `doamin` objects in the AFRINIC WHOIS Database. Checks will be run from at least two different geographical locations, with each site using both address families (ie. IPv4 and IPv6).
 
-*Any single successful recorded authoritattive answer for a single address family, or from a single test location is sufficient to NOT consider the nameserver as lame.*
+*Any single successful recorded authoritative answer for a single address family, or from a single test location is sufficient to NOT consider the nameserver as lame.*
 
 ### Timeline for Handling Lame Delegations
 
  Timeline    | Event    | Actions   |
 -------------|----------|-----------|
  Day 0       | Lame delegation is first detected.  | Lame delegation is recorded. Name server is re-tested for lame delegation every 3 days.
- Day 15      | Delegation is still detected as lame (after 5 additional checks).  | A remark is added in the domain object for the lame name servers. Email notification is sent every 5 days for another 15 days (3 notifications) to `Admin-C` and `Tech-C` contacts. Lameness checks are still run every 3 days. If a nameserver is not lame anymore, the corresponding remark is removed. |
+ Day 15      | Delegation is still detected as lame (after 5 additional checks).  | A remark is added in the domain object for the lame name servers. Email notification is sent every 5 days for another 15 days (3 notifications) to `Admin-C`, `Tech-C` and `Zone-C` contacts. Lameness checks are still run every 3 days. If a nameserver is not lame anymore, the corresponding remark is removed. |
  Day 30      | Delegation is still lame.  | The `nserver` record is removed from all `domain` objects containing it. Any `domain` object that thus has zero `nserver` records, is removed from the WHOIS database. `Admin-C` and `Tech-C` contacts are notified of all changes. In all instances the original `domain` object is archived.  |
 
 ### Object Archival
