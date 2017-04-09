@@ -61,23 +61,23 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ## Background: What is "Lame Delegation"?
 
-In the DNS, a lame delegation is a type of DNS misconfiguration error that occurs when a name-server that is designated as an authoritative server for a domain name, does not return authoritative data for that name, when queried. For example, if a name server is delegated the responsibility for providing a name service for a zone (via NS records) and it is not actually doing it, i.e. the name-server is neither set up as a primary nor secondary server, or is unresponsive, then the NS record is considered to be ‘lame’. ([RFC1912](https://www.ietf.org/rfc/rfc1912.txt)).
+In the DNS, a lame delegation is a type of DNS misconfiguration error that occurs when a nameserver that is designated as an authoritative server for a domain name, does not return authoritative data for that name, when queried. For example, if a nameserver is delegated the responsibility for providing a name service for a zone (via NS records) and it is not actually doing it, i.e. the nameserver is neither set up as a primary nor secondary server, or is unresponsive, then the NS record is considered to be ‘lame’. ([RFC1912](https://www.ietf.org/rfc/rfc1912.txt)).
 
 ## Impact of Lame Delegations in the Global DNS
 
-In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records (as in the example above), delegating authority further down the chain of authority. With such a delegation resulting in lame responses, the most obvious issue is complete failure for the specific .ARPA sub-zone that is being delegated to. This is similar to not having any delegation in place at all: The sub-set of .ARPA records cannot be found, and so reverse DNS lookups will fail for that set of IP address resources. With no delegation in place, the failure is immediate and final. The querying client for a particular zone will get a negative response from the parent zone's name-server, and do no further lookups.
+In the in-addr.arpa and ip6.arpa zones, as applicable to this policy, the DNS records considered are NS records (as in the example above), delegating authority further down the chain of authority. With such a delegation resulting in lame responses, the most obvious issue is complete failure for the specific .ARPA sub-zone that is being delegated to. This is similar to not having any delegation in place at all: The sub-set of .ARPA records cannot be found, and so reverse DNS lookups will fail for that set of IP address resources. With no delegation in place, the failure is immediate and final. The querying client for a particular zone will get a negative response from the parent zone's nameserver, and do no further lookups.
 
-But comparing to a lame delegation, the client receives a referral to the lame (and invalid or broken) name-server(s). It then has to look them up by name before then querying one or more for the originally requested record. If the first name-server in the set fails, the client may try the remainder, one by one if all are lame.
+But comparing to a lame delegation, the client receives a referral to the lame (and invalid or broken) nameserver(s). It then has to look them up by name before then querying one or more for the originally requested record. If the first nameserver in the set fails, the client may try the remainder, one by one if all are lame.
 
-In some cases the lameness is a result of non-authority or missing records, but in others the lame name-server is non-existent or unresponsive. In these cases, the client also has to wait for the request to time-out before trying the alternate NS, or failing completely.
+In some cases the lameness is a result of non-authority or missing records, but in others the lame nameserver is non-existent or unresponsive. In these cases, the client also has to wait for the request to time-out before trying the alternate NS, or failing completely.
 
-In summary, lame name-server delegations as compared to no delegation result in additional DNS traffic and a far greater time to respond for the client, with the same practical end outcome. In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s).
+In summary, lame nameserver delegations as compared to no delegation result in additional DNS traffic and a far greater time to respond for the client, with the same practical end outcome. In addition, the higher level parent zones that contain these useless and effectively invalid NS records are unnecessarily larger then needed. There is also a potential impact on any statistical data drawn from the parent zone(s).
 
 # How this Policy Addresses the Problem
 
 ## Summary
 
-This policy lays out a process to monitor name-server records reponsible for lame delegations, and a phased approach to removing these records from the DNS.
+This policy lays out a process to monitor nameserver records reponsible for lame delegations, and a phased approach to removing these records from the DNS.
 
 ## Scope of the Policy
 
@@ -103,11 +103,11 @@ Each `nserver` found must be checked to:
 
 This periodic checking should be automated. The checks should be relatively frequent, but not so frequent as to cause any operational impact to either AFRINIC systems or the global DNS.
 
-If a name-server fails a check for the first time, this is initially just recorded. Only after failing multiple lameness checks, should a name-server be flagged for further action.
+If a nameserver fails a check for the first time, this is initially just recorded. Only after failing multiple lameness checks, should a nameserver be flagged for further action.
 
 ### Notification
 
-After one or more name-servers are flagged as lame, a reasonable attempt must be made to contact the person(s) responsible for the `domain` object and the DNS delegation.
+After one or more nameservers are flagged as lame, a reasonable attempt must be made to contact the person(s) responsible for the `domain` object and the DNS delegation.
 
 All of the `admin-c`, `tech-c` and `zone-c` contacts should be tried in parallel.
 
@@ -119,21 +119,21 @@ The communication frequency, communication method(s) and number of attempts shou
 
 ### Delegation Removal
 
-Once a given name-server had been determined to be lame for a given DNS `domain`, and reasonable attempts have been made to contact a responsible person, the name-server must then be removed from the given DNS `domain`.
+Once a given nameserver had been determined to be lame for a given DNS `domain`, and reasonable attempts have been made to contact a responsible person, the nameserver must then be removed from the given DNS `domain`.
 
-The name-server must not be removed from all WHOIS objects and DNS zones, as it may not be uniformly lame for other zones it serves.
+The nameserver must not be removed from all WHOIS objects and DNS zones, as it may not be uniformly lame for other zones it serves.
 
-Only those name-servers flagged as lame should be removed from a given domain. The domain must *not* have all `nserver` attributes removed.
+Only those nameservers flagged as lame should be removed from a given domain. The domain must *not* have all `nserver` attributes removed.
 
 These removals should be automated. An optional `remarks` line may be added to the `domain` record in the database.
 
-Should a given domain have all it's name-server's identified as lame, and thus removed, it must then also be removed from the database, due to the `nserver` attribute being mandatory for `domain` objects.
+Should a given domain have all it's nameserver's identified as lame, and thus removed, it must then also be removed from the database, due to the `nserver` attribute being mandatory for `domain` objects.
 
-Historical information about removed name-servers and domain objects should be archived for a reasonable amount of time and made available to the member for informational purpose.
+Historical information about removed nameservers and domain objects should be archived for a reasonable amount of time and made available to the member for informational purpose.
 
 ### Re-instatement
 
-Once name-servers are fixed, or alternate name-servers are available for a given reverse DNS zone, the responsible person(s) would add delegation to them in the same way as a new delegation is done for a new IP assignment or allocation.
+Once nameservers are fixed, or alternate nameservers are available for a given reverse DNS zone, the responsible person(s) would add delegation to them in the same way as a new delegation is done for a new IP assignment or allocation.
 
 This process is found in the AFRINIC document "[How to request reverse delegation in AFRINIC region?](https://www.afrinic.net/library/corporate-documents/216-how-to-request-reverse-delegation-in-afrinic-region)".
 
@@ -158,7 +158,7 @@ A DNS delegation of a child-zone by lame NS records in the parent-zone will resu
 
 Therefore, removing these lame records at the parent will have no further adverse affects on the child zone.
 
-In the case of partial lameness, where not *all* name-servers are found to be lame, the impact will be positive: The removal of failing delegations will result in no DNS failures, rather than partial.
+In the case of partial lameness, where not *all* nameservers are found to be lame, the impact will be positive: The removal of failing delegations will result in no DNS failures, rather than partial.
 
 ## Sample Operations Guide
 

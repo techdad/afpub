@@ -493,7 +493,7 @@
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#detection-notification-and-removal" id="detection-notification-and-removal">Detection, Notification and Removal</a></h1>
 <h1 id="rfc.section.2.3.1"><a href="#rfc.section.2.3.1">2.3.1.</a> <a href="#lameness-checking-method" id="lameness-checking-method">'Lameness' Checking Method</a></h1>
 <p id="rfc.section.2.3.1.p.1">Tests will be run on a monthly basis on all nameservers found as <samp>nserver</samp> records within <samp>doamin</samp> objects in the AFRINIC WHOIS Database. Checks will be run from at least two different geographical locations, with each site using both address families (ie. IPv4 and IPv6).  </p>
-<p><em>Any single successful recorded authoritattive answer for a single address family, or from a single test location is sufficient to NOT consider the nameserver as lame.</em> </p>
+<p><em>Any single successful recorded authoritative answer for a single address family, or from a single test location is sufficient to NOT consider the nameserver as lame.</em> </p>
 <h1 id="rfc.section.2.3.2"><a href="#rfc.section.2.3.2">2.3.2.</a> <a href="#timeline-for-handling-lame-delegations" id="timeline-for-handling-lame-delegations">Timeline for Handling Lame Delegations</a></h1>
 <table cellpadding="3" cellspacing="0" class="tt full center">
   <thead>
@@ -507,12 +507,12 @@
     <tr>
       <td class="center">Day 0</td>
       <td class="center">Lame delegation is first detected.</td>
-      <td class="center">Lame delegation is recorded. Name server is re-tested for lame delegation every 3 days.</td>
+      <td class="center">Lame delegation is recorded. Nameserver is re-tested for lame delegation every 3 days.</td>
     </tr>
     <tr>
       <td class="center">Day 15</td>
       <td class="center">Delegation is still detected as lame (after 5 additional checks).</td>
-      <td class="center">A remark is added in the domain object for the lame name servers. Email notification is sent every 5 days for another 15 days (3 notifications) to <samp>Admin-C</samp> and <samp>Tech-C</samp> contacts. Lameness checks are still run every 3 days. If a nameserver is not lame anymore, the corresponding remark is removed.</td>
+      <td class="center">A remark is added in the domain object for the lame nameservers. Email notification is sent every 5 days for another 15 days (3 notifications) to <samp>Admin-C</samp>, <samp>Tech-C</samp> and <samp>Zone-C</samp> contacts. Lameness checks are still run every 3 days. If a nameserver is not lame anymore, the corresponding remark is removed.</td>
     </tr>
     <tr>
       <td class="center">Day 30</td>

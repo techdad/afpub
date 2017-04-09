@@ -53,9 +53,9 @@ Table of Contents
 
 
 
-Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 1]
+Shaw, et al.            AFPUB-2017-DNS001-OPS-00                [Page 1]
 
-AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
+AFRINIC (Sample) MaLame DNS Sample Operational Manual         April 2017
 
 
 2.  Sample Policy Implementation Procedure
@@ -96,7 +96,7 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
    geographical locations, with each site using both address families
    (ie.  IPv4 and IPv6).
 
-   _Any single successful recorded authoritattive answer for a single
+   _Any single successful recorded authoritative answer for a single
    address family, or from a single test location is sufficient to NOT
    consider the nameserver as lame._
 
@@ -109,26 +109,27 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
 
 
 
-Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 2]
+Shaw, et al.            AFPUB-2017-DNS001-OPS-00                [Page 2]
 
-AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
+AFRINIC (Sample) MaLame DNS Sample Operational Manual         April 2017
 
 
    +----------+------------+-------------------------------------------+
    | Timeline |   Event    |                  Actions                  |
    +----------+------------+-------------------------------------------+
-   |  Day 0   |    Lame    |  Lame delegation is recorded. Name server |
+   |  Day 0   |    Lame    |  Lame delegation is recorded. Nameserver  |
    |          | delegation |  is re-tested for lame delegation every 3 |
    |          |  is first  |                   days.                   |
    |          | detected.  |                                           |
    |  Day 15  | Delegation |   A remark is added in the domain object  |
-   |          |  is still  |      for the lame name servers. Email     |
+   |          |  is still  |      for the lame nameservers. Email      |
    |          |  detected  |   notification is sent every 5 days for   |
    |          |  as lame   |    another 15 days (3 notifications) to   |
-   |          |  (after 5  | "Admin-C" and "Tech-C" contacts. Lameness |
-   |          | additional |  checks are still run every 3 days. If a  |
-   |          |  checks).  |    nameserver is not lame anymore, the    |
-   |          |            |      corresponding remark is removed.     |
+   |          |  (after 5  |      "Admin-C", "Tech-C" and "Zone-C"     |
+   |          | additional |  contacts. Lameness checks are still run  |
+   |          |  checks).  | every 3 days. If a nameserver is not lame |
+   |          |            |    anymore, the corresponding remark is   |
+   |          |            |                  removed.                 |
    |  Day 30  | Delegation |  The "nserver" record is removed from all |
    |          |  is still  |    "domain" objects containing it. Any    |
    |          |   lame.    |     "domain" object that thus has zero    |
@@ -164,10 +165,9 @@ AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
 
 
 
-
-Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 3]
+Shaw, et al.            AFPUB-2017-DNS001-OPS-00                [Page 3]
 
-AFRINIC OperationalLameuDNS(Sample Operational Manual         April 2017
+AFRINIC (Sample) MaLame DNS Sample Operational Manual         April 2017
 
 
 2.3.6.  Lameness Verification
@@ -221,4 +221,4 @@ Authors' Addresses
 
 
 
-Shaw, et al.        AFPUB-2017-DNS001-OPS-00 (Sample)           [Page 4]
+Shaw, et al.            AFPUB-2017-DNS001-OPS-00                [Page 4]

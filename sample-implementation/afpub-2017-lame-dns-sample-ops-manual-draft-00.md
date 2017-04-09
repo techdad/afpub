@@ -12,8 +12,8 @@
 
     [pi]
     private = "yes"
-    header = "AFRINIC Operational Manual (Smaple)"
-    footer = "AFPUB-2017-DNS001-OPS-00 (Sample)"
+    header = "AFRINIC (Sample) Manual"
+    footer = "AFPUB-2017-DNS001-OPS-00"
     
     [[author]]
     initials="D."
@@ -92,8 +92,8 @@ Tests will be run on a monthly basis on all nameservers found as `nserver` recor
 
  Timeline    | Event    | Actions   |
 -------------|----------|-----------|
- Day 0       | Lame delegation is first detected.  | Lame delegation is recorded. Name server is re-tested for lame delegation every 3 days.
- Day 15      | Delegation is still detected as lame (after 5 additional checks).  | A remark is added in the domain object for the lame name servers. Email notification is sent every 5 days for another 15 days (3 notifications) to `Admin-C`, `Tech-C` and `Zone-C` contacts. Lameness checks are still run every 3 days. If a nameserver is not lame anymore, the corresponding remark is removed. |
+ Day 0       | Lame delegation is first detected.  | Lame delegation is recorded. Nameserver is re-tested for lame delegation every 3 days.
+ Day 15      | Delegation is still detected as lame (after 5 additional checks).  | A remark is added in the domain object for the lame nameservers. Email notification is sent every 5 days for another 15 days (3 notifications) to `Admin-C`, `Tech-C` and `Zone-C` contacts. Lameness checks are still run every 3 days. If a nameserver is not lame anymore, the corresponding remark is removed. |
  Day 30      | Delegation is still lame.  | The `nserver` record is removed from all `domain` objects containing it. Any `domain` object that thus has zero `nserver` records, is removed from the WHOIS database. `Admin-C` and `Tech-C` contacts are notified of all changes. In all instances the original `domain` object is archived.  |
 
 ### Object Archival
