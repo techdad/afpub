@@ -42,7 +42,7 @@ A large number of the reverse DNS delegations from the AFRINIC database are misc
 
 ### 2.1.  Summary
 
-This policy proposes to remove "lame" delegation records from 'domain' objects in the AFRINIC database.
+The aim of the policy is to give AFRINIC staff the permission to remove "lame" delegation records from 'domain' objects in the AFRINIC database.
 
 ### 2.2.  Scope of the Policy
 
